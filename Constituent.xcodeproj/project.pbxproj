@@ -79,6 +79,8 @@
 		6BA5631524920121007BF788 = {
 			isa = PBXGroup;
 			children = (
+				6BA5632124920121007BF788 /* AppDelegate.swift */,
+				6BA5632324920121007BF788 /* SceneDelegate.swift */,
 				6BA5632024920121007BF788 /* Constituent */,
 				6BA5633724920138007BF788 /* ConstituentTests */,
 				6BA5634224920138007BF788 /* ConstituentUITests */,
@@ -99,9 +101,11 @@
 		6BA5632024920121007BF788 /* Constituent */ = {
 			isa = PBXGroup;
 			children = (
-				6BA5632124920121007BF788 /* AppDelegate.swift */,
-				6BA5632324920121007BF788 /* SceneDelegate.swift */,
-				6BA5632524920121007BF788 /* ViewController.swift */,
+				6BE40F7924921A32007C40CD /* Model */,
+				6BE40F7A24921A39007C40CD /* View */,
+				6BE40F7B24921A41007C40CD /* Presenter */,
+				6BE40F7824921A28007C40CD /* Services */,
+				6BE40F7C24921A52007C40CD /* Extension */,
 				6BA5632724920121007BF788 /* Main.storyboard */,
 				6BA5632A24920138007BF788 /* Assets.xcassets */,
 				6BA5632C24920138007BF788 /* LaunchScreen.storyboard */,
@@ -126,6 +130,66 @@
 				6BA5634524920138007BF788 /* Info.plist */,
 			);
 			path = ConstituentUITests;
+			sourceTree = "<group>";
+		};
+		6BE40F7824921A28007C40CD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6BE40F7924921A32007C40CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6BE40F7A24921A39007C40CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BE40F7E24921A7C007C40CD /* ViewControllers */,
+				6BE40F7F24921A84007C40CD /* Cells */,
+				6BE40F7D24921A71007C40CD /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6BE40F7B24921A41007C40CD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6BE40F7C24921A52007C40CD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6BE40F7D24921A71007C40CD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6BE40F7E24921A7C007C40CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6BA5632524920121007BF788 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6BE40F7F24921A84007C40CD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

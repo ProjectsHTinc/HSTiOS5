@@ -1,34 +1,48 @@
 PODS:
-  - Alamofire (5.2.1)
+  - Alamofire (4.7.3)
+  - AlamofireObjectMapper (5.2.1):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
+  - EMPageViewController (4.0.0)
   - IQKeyboardManagerSwift (6.5.5)
   - MBProgressHUD (1.2.0)
+  - ObjectMapper (3.5.3)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
+  - Alamofire (~> 4.7.2)
+  - AlamofireObjectMapper (~> 5.0)
+  - EMPageViewController
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.2.0)
+  - ObjectMapper (~> 3.1)
   - SDWebImage (~> 5.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlamofireObjectMapper
+    - EMPageViewController
     - IQKeyboardManagerSwift
     - MBProgressHUD
+    - ObjectMapper
     - SDWebImage
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  EMPageViewController: de8c8d6ea44c77bc2463f2cb9b4128390d2391f2
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 95e5c9148132ded3d84411729928ed3a795c6fde
+PODFILE CHECKSUM: f377cd67fb974ff1a114a2dd3e84f89c0274f49d
 
 COCOAPODS: 1.9.1

@@ -17,12 +17,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        self.window = window
-        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "login") as! Login
-        window.rootViewController = newViewcontroller
-        window.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        self.loadBaseContrloler()
+    }
+    
+    func loadBaseContrloler ()
+    {
+        let user_id = UserDefaults.standard.object(forKey: UserDefaultsKey.userIDkey.rawValue) ?? ""
+        let user_name = UserDefaults.standard.object(forKey: UserDefaultsKey.userNamekey.rawValue) ?? ""
+        let client_api_url = UserDefaults.standard.object(forKey: UserDefaultsKey.clientAPiUrlkey.rawValue) ?? ""
+        let constituencyName = UserDefaults.standard.object(forKey: UserDefaultsKey.constituencyNamekey.rawValue) ?? ""
+        if (((user_id as AnyObject) as! String) == "") {
+            guard let window = self.window else { return }
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "login") as! Login
+            window.rootViewController = newViewcontroller
+            window.makeKeyAndVisible()
+        }
+        else
+        {
+            GlobalVariables.shared.user_id = user_id as! String
+            GlobalVariables.shared.user_name = user_name as! String
+            GlobalVariables.shared.CLIENTURL = client_api_url as! String
+            GlobalVariables.shared.selectedConstituencyName = constituencyName as! String
+            guard let window = self.window else { return }
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Tabbar", bundle: nil)
+            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "tabbarController") as! TabbarController
+            window.rootViewController = newViewcontroller
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

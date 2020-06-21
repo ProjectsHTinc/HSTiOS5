@@ -12,6 +12,7 @@ struct NewsFeeddata:Codable {
     let image_file_name : String
     let title : String
     let news_date : String
+    let details : String
 }
 
 
@@ -49,7 +50,7 @@ class NewsFeedPresnter {
                 if (newsfeed.count == 0){
                 } else {
                   let mappedUsers = newsfeed.map {
-                      return NewsFeeddata(image_file_name: "\($0.image_file_name ?? "")", title: "\($0.title ?? "")", news_date: "\($0.news_date ?? "")")
+                    return NewsFeeddata(image_file_name: "\($0.image_file_name ?? "")", title: "\($0.title ?? "")", news_date: "\($0.news_date ?? "")", details:"\($0.details ?? "")")
                      }
                   self.newsFeedView?.setNewsFeed(news_feed: mappedUsers)
                 }

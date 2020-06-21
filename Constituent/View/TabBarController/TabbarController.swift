@@ -14,6 +14,7 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        /*Set select tabbar index*/
         self.selectedIndex = 1
 
         /*Tabbar border width*/

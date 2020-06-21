@@ -26,6 +26,22 @@ extension UIViewController
         
     }
     
+    func addrightButton(bg_ImageName:String)
+    {
+        //Back buttion
+        let btnRighttMenu: UIButton = UIButton()
+        btnRighttMenu.setImage(UIImage(named: bg_ImageName), for: UIControl.State())
+        btnRighttMenu.addTarget(self, action: #selector(rightButtonClick), for: UIControl.Event.touchUpInside)
+        btnRighttMenu.frame = CGRect(x: 0, y: 0, width: 33/2, height: 27/2)
+        let barButton = UIBarButtonItem(customView: btnRighttMenu)
+        self.navigationItem.rightBarButtonItem  = barButton
+    }
+    
+    @objc public func rightButtonClick()
+    {
+        
+    }
+    
     func setLeftAlignedNavigationItemTitle(text: String,color: UIColor,margin left: CGFloat)
     {
         let titleLabel = UILabel()
@@ -33,14 +49,10 @@ extension UIViewController
         titleLabel.text = text
         titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         self.navigationItem.titleView = titleLabel
-        
         guard let containerView = self.navigationItem.titleView?.superview else { return }
-        
         // NOTE: This always seems to be 0. Huh??
         let leftBarItemWidth = self.navigationItem.leftBarButtonItems?.reduce(0, { $0 + $1.width })
-        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),

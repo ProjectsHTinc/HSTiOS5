@@ -11,6 +11,10 @@ import UIKit
 enum UserDefaultsKey : String
 {
       case userOtpListSessionkey
+      case userIDkey
+      case userNamekey
+      case clientAPiUrlkey
+      case constituencyNamekey
 }
 
 extension UserDefaults
@@ -32,5 +36,10 @@ extension UserDefaults
     func clearUserData()
     {
         UserDefaults.standard.removeObject(forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.userIDkey.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.userNamekey.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.clientAPiUrlkey.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.constituencyNamekey.rawValue)
+
     }
 }

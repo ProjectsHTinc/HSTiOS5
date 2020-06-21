@@ -14,6 +14,10 @@ class News: UIViewController {
     var timer: Timer?
     var bannerImageindex = 0
     var inForwardDirection = true
+    var news_Image = String()
+    var news_title = String()
+    var news_Date = String()
+    var news_Details = String()
 
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
@@ -23,14 +27,14 @@ class News: UIViewController {
     var newsFeed = [NewsFeeddata]()
     var bannerImage = [BannerImagedata]()
     
-    var arr = [String]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        /*set navigation title*/
-        self.setLeftAlignedNavigationItemTitle(text: String(format:"News"), color: .white, margin: 20)
+        // Do any additional setup after loading the view.
+        self.title = "News"
+        /*Add right navigation button*/
+        self.addrightButton(bg_ImageName:"bell")
         /*Set Delegate For TableView*/
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -44,8 +48,11 @@ class News: UIViewController {
         self.tableView?.backgroundColor = UIColor.white
         self.bannerCollectionView.backgroundColor = UIColor.white
         
-        arr = ["asdasdasd","asdasdasd","asdasdd"]
-
+    }
+    
+    @objc public override func rightButtonClick()
+    {
+        
     }
     
     func startTimer() {
@@ -84,6 +91,12 @@ class News: UIViewController {
     
     func callAPI ()
     {
+        guard Reachability.isConnectedToNetwork() == true else{
+              AlertController.shared.offlineAlert(targetVc: self, complition: {
+                //Custom action code
+             })
+               return
+        }
         presenterNewsFeedPage.attachView(view: self)
         presenterBannerImage.attachView(view: self)
         presenterNewsFeedPage.getNewsFeed(user_id: GlobalVariables.shared.user_id)
@@ -91,15 +104,24 @@ class News: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "to_newsfeedDetail")
+        {
+            let vc = segue.destination as! NewsDetail
+            vc.newsImage = self.news_Image
+            vc.newsDate = self.news_Date
+            vc.newstitle = self.news_title
+            vc.newsDetails = self.news_Details
+        }
     }
-    */
+    
 
 }
 
@@ -166,6 +188,18 @@ extension News: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 214
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         
+        let news_feed = newsFeed[indexPath.row]
+        self.news_Image = news_feed.image_file_name
+        self.news_title = news_feed.title
+        self.news_Date = news_feed.news_date
+        self.news_Details = news_feed.details
+        print(news_feed.title,news_feed.news_date,news_feed.details)
+
+        self.performSegue(withIdentifier: "to_newsfeedDetail", sender: self)
     }
     
 }

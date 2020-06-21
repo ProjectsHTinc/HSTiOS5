@@ -29,6 +29,7 @@ class APIManager: NSObject {
           case otpUrl = "apiconstituentios/mobile_verify"
           case bannerImageUrl = "apiconstituentios/view_banners"
           case newsFeedUrl = "apiconstituentios/newsfeed_list"
+          case grivencesUrl = "apiconstituentios/greivance_list"
       }
       
       // MARK: GET CONSTITUENCY LIST RESPONSE
@@ -361,6 +362,65 @@ class APIManager: NSObject {
     
     // MARK: Make NEWS FEED REQUEST
     func createRequestForNewsFeed(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET GRIVENCES RESPONSE
+    func callAPIGrivance(user_id:String, type:String, onSuccess successCallback: ((_ grievance: [GrievanceModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.grivencesUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id,"type": type]
+        // call API
+        self.createRequestForGrievance(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "list found" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+                        
+          if let responseDict = responseObject["grievance_list"].arrayObject
+          {
+                let grievanceModel = responseDict as! [[String:AnyObject]]
+                // Create object
+                var data = [GrievanceModel]()
+                for item in grievanceModel {
+                    let single = GrievanceModel.build(item)
+                    data.append(single)
+                }
+                // Fire callback
+              successCallback?(data)
+           } else {
+                failureCallback?("An error has occured.")
+            }
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: Make GRIVENCES REQUEST
+    func createRequestForGrievance(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)

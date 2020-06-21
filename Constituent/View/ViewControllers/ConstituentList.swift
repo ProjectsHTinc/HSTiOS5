@@ -13,25 +13,26 @@ class ConstituentList: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     var otp = String()
     var mobilenum = String()
-
-    var otpDatas = UserDefaults.standard.getsOtpArrayData(OtpData.self, forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)
+    var otpData = [OtpData]()
 
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tableView.backgroundColor = .white
+         otpData = UserDefaults.standard.getsOtpArrayData(OtpData.self, forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)
+         self.tableView.reloadData()
+         self.tableView.backgroundColor = .white
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return otpDatas.count
+          return otpData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConstituentCell
-         let constituent = otpDatas[indexPath.row]
+         let constituent = otpData[indexPath.row]
          cell.name.text = constituent.full_name
          cell.serialnumber.text = ("Serial Number - \(constituent.id)")
          cell.dob.text = ("Date of Birth - \(constituent.dob)")
@@ -45,9 +46,11 @@ class ConstituentList: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-         let index = otpDatas[indexPath.row]
-         GlobalVariables.shared.user_id = index.id
-         GlobalVariables.shared.user_name = index.full_name
+         let index = otpData[indexPath.row]
+         UserDefaults.standard.set(index.id, forKey: UserDefaultsKey.userIDkey.rawValue)
+         GlobalVariables.shared.user_id = UserDefaults.standard.object(forKey: UserDefaultsKey.userIDkey.rawValue) as! String
+         UserDefaults.standard.set(index.full_name, forKey: UserDefaultsKey.userNamekey.rawValue)
+         GlobalVariables.shared.user_name = UserDefaults.standard.object(forKey: UserDefaultsKey.userNamekey.rawValue) as! String
          self.performSegue(withIdentifier: "to_Tabbar", sender: self)
 
     }

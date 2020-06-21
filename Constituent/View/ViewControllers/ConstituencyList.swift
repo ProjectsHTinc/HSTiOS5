@@ -9,13 +9,19 @@
 import UIKit
 import MBProgressHUD
 
+protocol ConstituencyListDelegate
+{
+    func saveText(strText : String)
+}
+
 class ConstituencyList: UIViewController, ClientUrlView {
     
     var client = [clientUrlData]()
     var selectedIndex: Int = 0
     var selectedParty_id = String()
-    var buttoncheck = String()
-
+    var delegate : ConstituencyListDelegate?
+    var strSaveText : NSString!
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var cancelOutlet: UIButton!
     @IBOutlet var okOutlet: UIButton!
@@ -32,6 +38,8 @@ class ConstituencyList: UIViewController, ClientUrlView {
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
+        /*Remove EmptyCell in TableView*/
+        tableView?.tableFooterView = UIView()
         activityView?.hidesWhenStopped = true
         // Do any additional setup after loading the view.
         self.getConstituencyList ()
@@ -56,8 +64,7 @@ class ConstituencyList: UIViewController, ClientUrlView {
     }
     
     @IBAction func cancelAction(_ sender: Any){
-              self.buttoncheck = "cancel"
-              self.performSegue(withIdentifier: "to_login", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okAction(_ sender: Any) {
@@ -91,9 +98,14 @@ class ConstituencyList: UIViewController, ClientUrlView {
     func setclientUrl(clientUrl: [clientUrlData]) {
          client = clientUrl
          let client_api_url = client[0]
-         GlobalVariables.shared.CLIENTURL = client_api_url.client_api_url
-         self.buttoncheck = "selected"
-         self.performSegue(withIdentifier: "to_login", sender: self)
+         UserDefaults.standard.set(client_api_url.client_api_url, forKey: UserDefaultsKey.clientAPiUrlkey.rawValue)
+         GlobalVariables.shared.CLIENTURL = UserDefaults.standard.object(forKey: UserDefaultsKey.clientAPiUrlkey.rawValue) as! String
+         if (self.delegate) != nil
+         {
+            delegate?.saveText(strText: (GlobalVariables.shared.selectedConstituencyName as NSString) as String)
+            self.dismiss(animated: true, completion: nil)
+         }
+         print(GlobalVariables.shared.selectedConstituencyName,self.selectedParty_id)
     }
     
     func setEmptyClientUrl(errorMessage: String) {
@@ -102,6 +114,7 @@ class ConstituencyList: UIViewController, ClientUrlView {
         })
     }
     
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -109,12 +122,8 @@ class ConstituencyList: UIViewController, ClientUrlView {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if (segue.identifier == "to_login")
-        {
-            let vc = segue.destination as! Login
-            vc.From =  self.buttoncheck
-        }
     }
+    */
 
 }
 
@@ -138,9 +147,9 @@ extension ConstituencyList: UITableViewDataSource,UITableViewDelegate {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         selectedIndex = indexPath.row;
         let constituency = constituencyNameList[selectedIndex]
-        self.selectedParty_id = String (constituency.constituency_id)
-        GlobalVariables.shared.selectedConstituencyName = constituency.constituency_name
-        print(GlobalVariables.shared.selectedConstituencyName,self.selectedParty_id)
+        self.selectedParty_id = String (constituency.constituency_id) 
+        UserDefaults.standard.set(constituency.constituency_name, forKey: UserDefaultsKey.constituencyNamekey.rawValue)
+        GlobalVariables.shared.selectedConstituencyName = UserDefaults.standard.object(forKey: UserDefaultsKey.constituencyNamekey.rawValue) as! String
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

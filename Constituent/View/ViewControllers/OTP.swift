@@ -198,7 +198,7 @@ extension OTP: OtpView
     }
     func setOtp(otpValue: [OtpData]) {
          otpData = otpValue
-        self.performSegue(withIdentifier: "to_constituentList", sender: self)
+         self.performSegue(withIdentifier: "to_constituentList", sender: self)
     }
     func setEmptyOtp(errorMessage: String) {
         AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {

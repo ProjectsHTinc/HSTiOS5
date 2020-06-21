@@ -13,34 +13,23 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
     @IBOutlet var mobileNumber: UITextField!
     @IBOutlet var selectedConstituency: UITextField!
     @IBOutlet var activityView: UIActivityIndicatorView!
+    @IBOutlet var constituencyOutlet: UIButton!
     
     /*Get Login Otp*/
     let presenter = LoginPresenter(loginService: LoginService())
-    var From = String()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         /*set delegate for Textfields*/
         self.mobileNumber.delegate = self
         /*Tap anywhere to hide keypad*/
         self.hideKeyboardWhenTappedAround()
-        /*Get selected Constituency Name*/
-        if From == "selected"
-        {
-            self.selectedConstituency.text = GlobalVariables.shared.selectedConstituencyName
-            selectedConstituency.attributedPlaceholder = NSAttributedString(string: "Select Constituency",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        }
-        else
-        {
-            /*Set placeholder color For Textfield*/
-            selectedConstituency.attributedPlaceholder = NSAttributedString(string: "Select Constituency",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        }
         /*Hide Activity View*/
         activityView.hidesWhenStopped = true
+        /*Set PlaceHolder textColor*/
+        selectedConstituency.attributedPlaceholder =
+        NSAttributedString(string: "Select Constituency", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
     }
         
@@ -62,9 +51,26 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
              return
         }
         
-        self.selectedConstituency.text = ""
-        Navigator.onMoveToConstituencyList(view: self)
+        //self.selectedConstituency.text = ""
+        self.popOverButtonClick(sender: self.constituencyOutlet)
+//        self.performSegue(withIdentifier: "toConstituencyList", sender: self)
     }
+    
+    func popOverButtonClick (sender: UIButton)
+    {
+        let savingsInformationViewController = storyboard?.instantiateViewController(withIdentifier: "constituencyList") as! ConstituencyList
+            savingsInformationViewController.delegate = self
+            savingsInformationViewController.strSaveText = self.selectedConstituency.text! as NSString
+            savingsInformationViewController.modalPresentationStyle = .popover
+        if let popoverController = savingsInformationViewController.popoverPresentationController {
+                popoverController.sourceView = sender
+                popoverController.sourceRect = sender.bounds
+                popoverController.permittedArrowDirections = .any
+                popoverController.delegate = self
+            }
+        present(savingsInformationViewController, animated: true, completion: nil)
+     }
+    
     
     func CheckValuesAreEmpty () -> Bool{
         
@@ -201,9 +207,28 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
            vc.otp = sender as! String
            vc.mobileNumber = self.mobileNumber.text!.replacingOccurrences(of: " ", with: "") 
         }
+        else if (segue.identifier == "toConstituencyList")
+        {
+            let _ = segue.destination as! ConstituencyList
+        }
     }
     
 
 }
 
+extension Login : UIPopoverPresentationControllerDelegate, ConstituencyListDelegate
+{
+     func saveText(strText: String) {
+        self.selectedConstituency.text = strText
+      }
+
+      // MARK: - UIPopoverPresentationControllerDelegate
+      func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
+        return .fullScreen
+      }
+
+    private func presentationController(controller: UIPresentationController!, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController! {
+          return UINavigationController(rootViewController: controller.presentedViewController)
+      }
+}
 

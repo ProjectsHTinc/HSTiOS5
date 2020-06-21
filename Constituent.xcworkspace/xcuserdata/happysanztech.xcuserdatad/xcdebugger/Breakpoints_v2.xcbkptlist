@@ -151,32 +151,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7FDB8566-06CA-40A3-8284-755A42F59ABA"
+            uuid = "FF206544-9432-4C75-A53B-C780B7B4A19D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Constituent/View/TabBarController/News.swift"
+            filePath = "Constituent/View/TabBarController/Grievances.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "setNewsFeed(news_feed:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "47E7CDE1-A174-4C13-B5A9-4F230ADA78DD"
+            uuid = "F3E43C47-F93D-461B-AFAD-26BA2450732F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Constituent/View/TabBarController/News.swift"
+            filePath = "Constituent/View/TabBarController/Grievances.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "setBannerImage(banner_image:)"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "setBannerGrievance(grievance_Data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

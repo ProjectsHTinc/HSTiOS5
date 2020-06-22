@@ -39,20 +39,20 @@ class GrievancesDetail: UIViewController {
         self.descripitionText.text = descripition_Text
         self.refernce.text = _refernce
         
-        if self.grievanceName.text == "IDENTITY CORRECTIONS" && self.status.text == "PROCESSING"
+        if self.status.text == "PROCESSING"
         {
-            self.grievanceName.text = "Private"
+            self.seekerType.textColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
             self.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
         }
-        else if self.grievanceName.text == "PUBLIC GRIEVANCE " && self.status.text == "COMPLETED"
+        else if self.status.text == "COMPLETED"
         {
-            self.grievanceName.text = "Public"
+            self.seekerType.textColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
             self.status.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
         }
         else
         {
-            self.grievanceName.text = "Grievance"
-            self.status.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+            self.seekerType.textColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
+            self.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
         }
 
     }

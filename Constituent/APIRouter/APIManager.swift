@@ -30,6 +30,9 @@ class APIManager: NSObject {
           case bannerImageUrl = "apiconstituentios/view_banners"
           case newsFeedUrl = "apiconstituentios/newsfeed_list"
           case grivencesUrl = "apiconstituentios/greivance_list"
+          case meetingUrl = "apiconstituentios/meeting_list"
+          case plantDonationUrl = "apiconstituentios/get_plant_donation"
+          case notificationUrl = "apiconstituentios/notification_list"
       }
       
       // MARK: GET CONSTITUENCY LIST RESPONSE
@@ -69,7 +72,7 @@ class APIManager: NSObject {
        )
       }
       
-      // MARK: Make CONSTITUENCY LIST REQUEST
+      // MARK: MAKE CONSTITUENCY LIST REQUEST
       func createRequestForConstituencyList(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
       {
           Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -126,7 +129,7 @@ class APIManager: NSObject {
      )
     }
     
-    // MARK: Make CLIENT URL REQUEST
+    // MARK: MAKE CLIENT URL REQUEST
     func createRequestGetClientUrl(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -181,7 +184,7 @@ class APIManager: NSObject {
     }
     
     
-    // MARK: Make LOGIN REQUEST
+    // MARK: MAKE LOGIN REQUEST
     func createRequestForLogin(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -242,7 +245,7 @@ class APIManager: NSObject {
     }
     
     
-    // MARK: Make OTP REQUEST
+    // MARK: MAKE OTP REQUEST
     func createRequestForOTP(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -301,7 +304,7 @@ class APIManager: NSObject {
     }
     
     
-    // MARK: Make NEWS FEED REQUEST
+    // MARK: MAKE NEWS FEED REQUEST
     func createRequestForBannerImage(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -360,7 +363,7 @@ class APIManager: NSObject {
     }
     
     
-    // MARK: Make NEWS FEED REQUEST
+    // MARK: MAKE NEWS FEED REQUEST
     func createRequestForNewsFeed(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
@@ -419,8 +422,181 @@ class APIManager: NSObject {
     }
     
     
-    // MARK: Make GRIVENCES REQUEST
+    // MARK: MAKE GRIVENCES REQUEST
     func createRequestForGrievance(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET MEETING RESPONSE
+    func callAPIMeeting(user_id:String, onSuccess successCallback: ((_ meeting: [MeetingModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.meetingUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id]
+        // call API
+        self.createRequestForMeeting(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "list found" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+                        
+          if let responseDict = responseObject["meeting_list"].arrayObject
+          {
+                let meetingModel = responseDict as! [[String:AnyObject]]
+                // Create object
+                var data = [MeetingModel]()
+                for item in meetingModel {
+                    let single = MeetingModel.build(item)
+                    data.append(single)
+                }
+                // Fire callback
+              successCallback?(data)
+           } else {
+                failureCallback?("An error has occured.")
+            }
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: MAKE MEETING REQUEST
+    func createRequestForMeeting(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET PLANT DONATION RESPONSE
+    func callAPIPlant(user_id:String, onSuccess successCallback: ((_ plant: PlantDonationModel) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.plantDonationUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id]
+        // call API
+        self.createRequestForPlantDonation(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "plant donation found" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+            
+            let name_of_plant =  responseObject["details"]["name_of_plant"].string
+            let no_of_plant =   responseObject["details"]["no_of_plant"].string
+            let created_at =   responseObject["details"]["created_at"].string
+
+            let sendToModel = PlantDonationModel()
+            sendToModel.name_of_plant = name_of_plant
+            sendToModel.no_of_plant = no_of_plant
+            sendToModel.created_at = created_at
+            
+            successCallback?(sendToModel)
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: MAKE MEETING REQUEST
+    func createRequestForPlantDonation(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET NOTIFICATION RESPONSE
+    func callAPINotification(user_id:String, onSuccess successCallback: ((_ notification: [NotificationModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.notificationUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id]
+        // call API
+        self.createRequestForNotification(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "list found" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+                        
+          if let responseDict = responseObject["notification_list"].arrayObject
+          {
+                let notificationModel = responseDict as! [[String:AnyObject]]
+                // Create object
+                var data = [NotificationModel]()
+                for item in notificationModel {
+                    let single = NotificationModel.build(item)
+                    data.append(single)
+                }
+                // Fire callback
+              successCallback?(data)
+           } else {
+                failureCallback?("An error has occured.")
+            }
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: MAKE NOTIFICATION REQUEST
+    func createRequestForNotification(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)

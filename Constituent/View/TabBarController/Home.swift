@@ -40,7 +40,7 @@ class Home: UIViewController {
     
     @objc public override func rightButtonClick()
     {
-        
+        self.performSegue(withIdentifier: "to_Notification", sender: self)
     }
     
     @IBAction func grievanceAction(_ sender: Any) {
@@ -48,9 +48,11 @@ class Home: UIViewController {
     }
     
     @IBAction func meetingAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "to_Meeting", sender: self)
     }
     
     @IBAction func plantDonationAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "to_PlantDonation", sender: self)
     }
     
 

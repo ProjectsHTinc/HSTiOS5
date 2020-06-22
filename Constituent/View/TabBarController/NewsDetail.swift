@@ -28,8 +28,22 @@ class NewsDetail: UIViewController {
         self.bannerImage.sd_setImage(with: URL(string: newsImage), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
         self.titleNews.text = newstitle 
         self.date.text = newsDate
-        self.detailsNews.text = newsDetails
-        
+        self.detailsNews.attributedText = stringFromHtml(string: newsDetails)
+                
+    }
+    
+     func stringFromHtml(string: String) -> NSAttributedString? {
+        do {
+            let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+            if let d = data {
+                let str = try NSAttributedString(data: d,
+                                                 options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+                                                 documentAttributes: nil)
+                return str
+            }
+        } catch {
+        }
+        return nil
     }
     
 
@@ -44,3 +58,5 @@ class NewsDetail: UIViewController {
     */
 
 }
+
+

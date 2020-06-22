@@ -52,12 +52,12 @@ class News: UIViewController {
     
     @objc public override func rightButtonClick()
     {
-        
+        self.performSegue(withIdentifier: "to_Notification", sender: self)
     }
     
     func startTimer() {
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(scrollToNextCell), userInfo: nil, repeats: true);
+            timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scrollToNextCell), userInfo: nil, repeats: true);
         }
     }
     
@@ -159,6 +159,7 @@ extension News: NewsFeedView,BannerImageView
     func setBannerImage(banner_image: [BannerImagedata]) {
          bannerImage = banner_image
          self.bannerCollectionView.isHidden = false
+         self.startTimer()
          self.bannerCollectionView.reloadData()
     }
         
@@ -187,7 +188,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 214
+        return 259
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -220,12 +221,13 @@ extension News: UICollectionViewDelegate,UICollectionViewDataSource {
    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
          return CGSize(width:self.bannerCollectionView.bounds.width, height: self.bannerCollectionView.bounds.height)
     }
-    
+//
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
         return UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
     }
 }
+

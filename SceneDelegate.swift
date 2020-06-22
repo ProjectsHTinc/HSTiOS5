@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (((user_id as AnyObject) as! String) == "") {
             guard let window = self.window else { return }
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "login") as! Login
+            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "welcomeScreen") as! WelcomeScreen
             window.rootViewController = newViewcontroller
             window.makeKeyAndVisible()
         }

@@ -33,6 +33,7 @@ class APIManager: NSObject {
           case meetingUrl = "apiconstituentios/meeting_list"
           case plantDonationUrl = "apiconstituentios/get_plant_donation"
           case notificationUrl = "apiconstituentios/notification_list"
+          case profilrUrl = "apiconstituentios/user_details"
       }
       
       // MARK: GET CONSTITUENCY LIST RESPONSE
@@ -597,6 +598,65 @@ class APIManager: NSObject {
     
     // MARK: MAKE NOTIFICATION REQUEST
     func createRequestForNotification(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET PROFILE RESPONSE
+    func callAPIProfile(user_id:String, onSuccess successCallback: ((_ profile: [ProfileModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.profilrUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id]
+        // call API
+        self.createRequestForProfile(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "details found" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+                        
+          if let responseDict = responseObject["user_details"].arrayObject
+          {
+                let profileModel = responseDict as! [[String:AnyObject]]
+                // Create object
+                var data = [ProfileModel]()
+                for item in profileModel {
+                    let single = ProfileModel.build(item)
+                    data.append(single)
+                }
+                // Fire callback
+              successCallback?(data)
+           } else {
+                failureCallback?("An error has occured.")
+            }
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: MAKE PROFILE REQUEST
+    func createRequestForProfile(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)

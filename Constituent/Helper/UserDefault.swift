@@ -15,6 +15,7 @@ enum UserDefaultsKey : String
       case userNamekey
       case clientAPiUrlkey
       case constituencyNamekey
+      case userProfilekey
 }
 
 extension UserDefaults

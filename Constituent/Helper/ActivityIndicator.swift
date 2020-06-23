@@ -20,7 +20,11 @@ extension UIView {
     activityIndicator = UIActivityIndicatorView(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
     activityIndicator.center = self.center
     activityIndicator.hidesWhenStopped = true
-    activityIndicator.style = UIActivityIndicatorView.Style.medium
+    if #available(iOS 13.0, *) {
+        activityIndicator.style = UIActivityIndicatorView.Style.medium
+    } else {
+        // Fallback on earlier versions
+    }
     activityIndicator.color = UIColor(red: 45.0/255, green: 148.0/255, blue: 235.0/255, alpha: 1.0)
     activityIndicator.startAnimating()
     self.isUserInteractionEnabled = false

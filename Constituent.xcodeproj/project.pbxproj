@@ -80,7 +80,6 @@
 		6BADB5962497A8B20008BE03 /* TapToDismissKeypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */; };
 		6BADB5982497B0730008BE03 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5972497B0730008BE03 /* APIManager.swift */; };
 		6BADB59A2497B5C30008BE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5992497B5C30008BE03 /* Constants.swift */; };
-		6BADB59C2497BD3D0008BE03 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB59B2497BD3D0008BE03 /* AppVersion.swift */; };
 		6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */; };
 		6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE3370249E0E9500D19CF9 /* Grievances.swift */; };
 		6BDE3F7E249890E40098549B /* ConstituencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F7D249890E40098549B /* ConstituencyList.swift */; };
@@ -103,6 +102,9 @@
 		6BE3E43A24A1E89E006CBAF8 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E43924A1E89E006CBAF8 /* ProfileService.swift */; };
 		6BE3E43C24A1E8E9006CBAF8 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E43B24A1E8E9006CBAF8 /* ProfilePresenter.swift */; };
 		6BE40F81249222D3007C40CD /* RechabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE40F80249222D3007C40CD /* RechabilityManager.swift */; };
+		6BECB4FA24A32CD700FE31FC /* AppVersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4F924A32CD700FE31FC /* AppVersionModel.swift */; };
+		6BECB4FC24A32E2300FE31FC /* AppVersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4FB24A32E2300FE31FC /* AppVersionService.swift */; };
+		6BECB4FE24A32E7B00FE31FC /* AppVersionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4FD24A32E7B00FE31FC /* AppVersionPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,7 +205,6 @@
 		6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToDismissKeypad.swift; sourceTree = "<group>"; };
 		6BADB5972497B0730008BE03 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6BADB5992497B5C30008BE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6BADB59B2497BD3D0008BE03 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedcornerForUIView.swift; sourceTree = "<group>"; };
 		6BCE3370249E0E9500D19CF9 /* Grievances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grievances.swift; sourceTree = "<group>"; };
 		6BDE3F7D249890E40098549B /* ConstituencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituencyList.swift; sourceTree = "<group>"; };
@@ -226,6 +227,9 @@
 		6BE3E43924A1E89E006CBAF8 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		6BE3E43B24A1E8E9006CBAF8 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		6BE40F80249222D3007C40CD /* RechabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechabilityManager.swift; sourceTree = "<group>"; };
+		6BECB4F924A32CD700FE31FC /* AppVersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionModel.swift; sourceTree = "<group>"; };
+		6BECB4FB24A32E2300FE31FC /* AppVersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionService.swift; sourceTree = "<group>"; };
+		6BECB4FD24A32E7B00FE31FC /* AppVersionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionPresenter.swift; sourceTree = "<group>"; };
 		B4E538AD0234B6BE28FE8F54 /* Pods_Constituent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Constituent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0793D112466B842F315D5A4 /* Pods-Constituent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Constituent.debug.xcconfig"; path = "Target Support Files/Pods-Constituent/Pods-Constituent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -409,6 +413,7 @@
 				6B7B85A324A0CB600051F38F /* PlantDonationService.swift */,
 				6B7B85AF24A0F57A0051F38F /* NotificationService.swift */,
 				6BE3E43924A1E89E006CBAF8 /* ProfileService.swift */,
+				6BECB4FB24A32E2300FE31FC /* AppVersionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -418,7 +423,6 @@
 			children = (
 				6BDE3F812498A55D0098549B /* ConstituencyModel.swift */,
 				6BA5BF38249A26A7002227E9 /* ClientUrlModel.swift */,
-				6BADB59B2497BD3D0008BE03 /* AppVersion.swift */,
 				6BA56202249B315B00F87E74 /* LoginModel.swift */,
 				6BA5620F249B94A400F87E74 /* OTPModel.swift */,
 				6B60E1BC249CFA52007B63D0 /* BannerImageModel.swift */,
@@ -428,6 +432,7 @@
 				6B7B85A124A0C9B10051F38F /* PlantDonationModel.swift */,
 				6B7B85AD24A0F42C0051F38F /* NotificationModel.swift */,
 				6BE3E43724A1E668006CBAF8 /* ProfileModel.swift */,
+				6BECB4F924A32CD700FE31FC /* AppVersionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				6B7B85A524A0CB9E0051F38F /* PlantDonationPresenter.swift */,
 				6B7B85B124A0F5C50051F38F /* NotificationPresenter.swift */,
 				6BE3E43B24A1E8E9006CBAF8 /* ProfilePresenter.swift */,
+				6BECB4FD24A32E7B00FE31FC /* AppVersionPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				6B9CDE16249CB3F3003F1158 /* Profile.swift in Sources */,
 				6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */,
 				6BA56205249B320900F87E74 /* LoginService.swift in Sources */,
+				6BECB4FC24A32E2300FE31FC /* AppVersionService.swift in Sources */,
 				6BE07A33249F64AB007AA000 /* GrievancesPresenter.swift in Sources */,
 				6BE07A2D249F4863007AA000 /* GrievancesCell.swift in Sources */,
 				6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */,
@@ -733,18 +740,19 @@
 				6BDE3F802498A46F0098549B /* ConstituencyCell.swift in Sources */,
 				6BDE3F7E249890E40098549B /* ConstituencyList.swift in Sources */,
 				6B9CDE10249C9C34003F1158 /* TabbarController.swift in Sources */,
+				6BECB4FE24A32E7B00FE31FC /* AppVersionPresenter.swift in Sources */,
 				6BA56207249B3EC500F87E74 /* LoginPresenter.swift in Sources */,
 				6B60E1B8249CF792007B63D0 /* NewsFeedModel.swift in Sources */,
 				6BADB5982497B0730008BE03 /* APIManager.swift in Sources */,
 				6B7B85AE24A0F42C0051F38F /* NotificationModel.swift in Sources */,
 				6BE3E43C24A1E8E9006CBAF8 /* ProfilePresenter.swift in Sources */,
-				6BADB59C2497BD3D0008BE03 /* AppVersion.swift in Sources */,
 				6BE336E3249BB539005ADE6F /* ConstituentCell.swift in Sources */,
 				6BE3E43624A1E57B006CBAF8 /* ProfileDetails.swift in Sources */,
 				6B60E1BB249CF9FB007B63D0 /* NewsFeedService.swift in Sources */,
 				6B9CDE14249CB3E6003F1158 /* Home.swift in Sources */,
 				6B7B85A024A0C4B30051F38F /* PlantDonation.swift in Sources */,
 				6B7B85A624A0CB9E0051F38F /* PlantDonationPresenter.swift in Sources */,
+				6BECB4FA24A32CD700FE31FC /* AppVersionModel.swift in Sources */,
 				6BE336E1249BAC40005ADE6F /* ActivityIndicator.swift in Sources */,
 				6B7B85A224A0C9B10051F38F /* PlantDonationModel.swift in Sources */,
 				6B4CD353249232CD00255E55 /* AlertController.swift in Sources */,

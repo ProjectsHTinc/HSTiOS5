@@ -98,10 +98,10 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
           return true
     }
     
-    func setPeople(appversion: [AppVersion])
-    {
-         
-    }
+//    func setPeople(appversion: [AppVersion])
+//    {
+//
+//    }
     
     func requestToOtp()
     {

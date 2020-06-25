@@ -26,6 +26,7 @@ class PageViewController:UIViewController
         super.viewDidLoad()
         self.updateUIValues ()
         //self.view.backgroundColor = UIColor.white
+        UserDefaults.standard.set("true", forKey: UserDefaultsKey.splashkey.rawValue)
     }
         
     func updateUIValues ()

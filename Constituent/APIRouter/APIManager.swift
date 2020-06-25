@@ -26,6 +26,7 @@ class APIManager: NSObject {
           case constituencyList = "/list"
           case clientUrl = "/details"
           case logintUrl = "apiconstituentios/mobile_check"
+          case appversionUrl = "apiconstituentios/version_check"
           case otpUrl = "apiconstituentios/mobile_verify"
           case bannerImageUrl = "apiconstituentios/view_banners"
           case newsFeedUrl = "apiconstituentios/newsfeed_list"
@@ -187,6 +188,55 @@ class APIManager: NSObject {
     
     // MARK: MAKE LOGIN REQUEST
     func createRequestForLogin(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
+    {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+            print(responseObject)
+            
+            if responseObject.result.isSuccess
+            {
+                let resJson = JSON(responseObject.result.value!)
+                successCallback?(resJson)
+            }
+            
+            if responseObject.result.isFailure
+            {
+               let error : Error = responseObject.result.error!
+                failureCallback!(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: GET APPVERSION RESPONSE
+    func callAPIAppversion(version_code:String, onSuccess successCallback: ((_ appversion: AppVersionModel) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = GlobalVariables.shared.CLIENTURL + Endpoint.logintUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["version_code": version_code]
+        // call API
+        self.createRequestForAppversion(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["status"].string, msg == "error" else{
+              failureCallback?(responseObject["status"].string!)
+              return
+        }
+            
+            let status =  responseObject["status"].string
+            let sendToModel = AppVersionModel()
+            sendToModel.status = status
+            successCallback?(sendToModel)
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    
+    // MARK: MAKE APPVERSION REQUEST
+    func createRequestForAppversion(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)

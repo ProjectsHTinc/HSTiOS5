@@ -148,7 +148,7 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 184
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

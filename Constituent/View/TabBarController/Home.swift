@@ -19,7 +19,7 @@ class Home: UIViewController {
         guard checkInterConnection () else {
             return
         }
-        self.baseView.isHidden = false
+//        self.baseView.isHidden = false
         self.navigationItem.title = String(format: "%@ - %@", "GMS",GlobalVariables.shared.user_name)
         /*Add right navigation button*/
         self.addrightButton(bg_ImageName:"bell")

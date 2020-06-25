@@ -96,12 +96,6 @@ class ProfileDetails: UITableViewController {
     func clearAllData ()
     {
         UserDefaults.standard.clearUserData()
-        GlobalVariables.shared.selectedConstituencyName = ""
-        GlobalVariables.shared.CLIENTURL = ""
-        GlobalVariables.shared.Devicetoken = ""
-        GlobalVariables.shared.userCount = 0
-        GlobalVariables.shared.user_id = ""
-
     }
     /*
     // Override to support conditional editing of the table view.

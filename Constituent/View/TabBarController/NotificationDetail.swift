@@ -21,6 +21,7 @@ class NotificationDetail: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.addCustomizedBackBtn(title:"  Notification")
         self.notificationDate.text = notification_Date
         self.notificationTime.text = notification_Time
         self.notificationText.text = notification_Text

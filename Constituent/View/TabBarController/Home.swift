@@ -10,6 +10,9 @@ import UIKit
 
 class Home: UIViewController {
 
+    var presenterProfile = ProfilePresenter(profileService: ProfileService())
+    var profiledata = [ProfileData]()
+    
     @IBOutlet var baseView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,9 @@ class Home: UIViewController {
         self.navigationItem.title = String(format: "%@ - %@", "GMS",GlobalVariables.shared.user_name)
         /*Add right navigation button*/
         self.addrightButton(bg_ImageName:"bell")
-
+        self.callAPI()
     }
+    
         
     func checkInterConnection () -> Bool
     {
@@ -36,6 +40,12 @@ class Home: UIViewController {
               return false
         }
               return true
+    }
+    
+    func callAPI ()
+    {
+         presenterProfile.attachView(view: self)
+         presenterProfile.getProfile(user_id: GlobalVariables.shared.user_id)
     }
     
     @objc public override func rightButtonClick()
@@ -68,4 +78,25 @@ class Home: UIViewController {
         }
     }
 
+}
+
+extension Home :ProfileView
+{
+    func startLoading() {
+         self.view.activityStartAnimating()
+    }
+    
+    func finishLoading() {
+    }
+    
+    func setProfile(profile: [ProfileData]) {
+         profiledata = profile
+         self.view.activityStopAnimating()
+    }
+    
+    func setEmpty(errorMessage: String) {
+         AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {
+         })
+      
+    }
 }

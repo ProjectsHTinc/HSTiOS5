@@ -11,11 +11,16 @@ import Alamofire
 import SwiftyJSON
 import Foundation
 
-let MAIN_URL = "http://happysanz.in/superadmingms/api"
+let MAIN_URL = "https://happysanz.in/superadmingms/api"
 
 class APIManager: NSObject {
       
       static let instance = APIManager()
+      var manager: SessionManager {
+          let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 3.0
+          return manager
+      }
       
       enum RequestMethod {
           case get
@@ -77,7 +82,7 @@ class APIManager: NSObject {
       // MARK: MAKE CONSTITUENCY LIST REQUEST
       func createRequestForConstituencyList(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
       {
-          Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+          manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
               print(responseObject)
               
               if responseObject.result.isSuccess
@@ -134,7 +139,7 @@ class APIManager: NSObject {
     // MARK: MAKE CLIENT URL REQUEST
     func createRequestGetClientUrl(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -189,7 +194,7 @@ class APIManager: NSObject {
     // MARK: MAKE LOGIN REQUEST
     func createRequestForLogin(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -238,7 +243,7 @@ class APIManager: NSObject {
     // MARK: MAKE APPVERSION REQUEST
     func createRequestForAppversion(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -299,7 +304,7 @@ class APIManager: NSObject {
     // MARK: MAKE OTP REQUEST
     func createRequestForOTP(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -358,7 +363,7 @@ class APIManager: NSObject {
     // MARK: MAKE NEWS FEED REQUEST
     func createRequestForBannerImage(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -417,7 +422,7 @@ class APIManager: NSObject {
     // MARK: MAKE NEWS FEED REQUEST
     func createRequestForNewsFeed(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -476,7 +481,7 @@ class APIManager: NSObject {
     // MARK: MAKE GRIVENCES REQUEST
     func createRequestForGrievance(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -535,7 +540,7 @@ class APIManager: NSObject {
     // MARK: MAKE MEETING REQUEST
     func createRequestForMeeting(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -590,7 +595,7 @@ class APIManager: NSObject {
     // MARK: MAKE MEETING REQUEST
     func createRequestForPlantDonation(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -649,7 +654,7 @@ class APIManager: NSObject {
     // MARK: MAKE NOTIFICATION REQUEST
     func createRequestForNotification(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess
@@ -708,7 +713,7 @@ class APIManager: NSObject {
     // MARK: MAKE PROFILE REQUEST
     func createRequestForProfile(_ url: String,method: HTTPMethod,headers: [String: String]?,parameters: [String:String]?,onSuccess successCallback: ((JSON) -> Void)?,onFailure failureCallback: ((String) -> Void)?)
     {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
+        manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             print(responseObject)
             
             if responseObject.result.isSuccess

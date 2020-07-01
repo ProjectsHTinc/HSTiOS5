@@ -32,7 +32,7 @@ class Grievances: UIViewController {
             return
         }
         self.view.isHidden = false
-        self.navigationItem.title = "List Of Grievance"
+        self.addCustomizedBackBtn(title:"  Grievance")
         self.constitunecyName.text = GlobalVariables.shared.selectedConstituencyName
         /*set delegates*/
         self.tableView?.delegate = self
@@ -99,13 +99,29 @@ class Grievances: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "to_GrievanceDetail")
         {
-            let vc = segue.destination as! GrievancesDetail
-            vc.seeker_Type = seeker_Type
-            vc.pettion_Number = pettion_Number
-            vc.grievance_Name = grievance_Name
-            vc.subCat_Name = subCat_Name
-            vc.descripition_Text = descripition_Text
-            vc._refernce = _refernce
+            if segmentcontrol.selectedSegmentIndex == 0{
+                let vc = segue.destination as! GrievancesDetail
+                vc.seeker_Type = seeker_Type
+                vc.pettion_Number = pettion_Number
+                vc.grievance_Name = grievance_Name
+                vc.subCat_Name = subCat_Name
+                vc.descripition_Text = descripition_Text
+                vc._refernce = _refernce
+                vc._titlePE = "Pettition Number"
+            }
+            else
+            {
+                let vc = segue.destination as! GrievancesDetail
+                vc.seeker_Type = seeker_Type
+                vc.pettion_Number = pettion_Number
+                vc.grievance_Name = grievance_Name
+                vc.subCat_Name = subCat_Name
+                vc.descripition_Text = descripition_Text
+                vc._refernce = _refernce
+                vc._titlePE = "Enquiry Number"
+
+            }
+
 
         }
     }
@@ -122,29 +138,61 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GrievancesCell
-        let data = grievanceData[indexPath.row]
-        cell.pettionNumber.text = data.petition_enquiry_no
-        cell.grievanceName.text = data.grievance_name
-        cell.refernceNote.text = data.reference_note
-        cell.refernceDescripition.text = data.description
-        cell.greivanceStatus.text = data.status
-        
-        if cell.grievanceName.text == "IDENTITY CORRECTIONS" && cell.greivanceStatus.text == "PROCESSING"
+        if segmentcontrol.selectedSegmentIndex == 0
         {
-            cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-            cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
-        }
-        else if cell.grievanceName.text == "PUBLIC GRIEVANCE " && cell.greivanceStatus.text == "COMPLETED"
-        {
-            cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-            cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+            let data = grievanceData[indexPath.row]
+            cell.pettionNumber.text = String(format: "%@ %@", "Pettion Number : ",data.petition_enquiry_no)
+            cell.grievanceName.text = data.grievance_type
+            cell.refernceNote.text = data.grievance_name
+            cell.refernceDescripition.text = data.sub_category_name
+            cell.greivanceStatus.text = data.status
+            
+            if cell.greivanceStatus.text == "PROCESSING" || cell.greivanceStatus.text == "REQUESTED"
+            {
+//                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
+                cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            }
+//            else if cell.greivanceStatus.text == "COMPLETED"
+//            {
+////                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
+//                cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+//            }
+            else
+            {
+//                cell.grievanceName.backgroundColor = UIColor(red: 32.0/255, green: 128.0/255, blue: 152.0/255, alpha: 1.0)
+                  //cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+                  cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+
+            }
         }
         else
         {
-            cell.grievanceName.backgroundColor = UIColor(red: 32.0/255, green: 128.0/255, blue: 152.0/255, alpha: 1.0)
-            cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            let data = grievanceData[indexPath.row]
+            cell.pettionNumber.text = String(format: "%@ %@", "Enquiry Number : ",data.petition_enquiry_no)
+            cell.grievanceName.text = data.grievance_type
+            cell.refernceNote.text = data.reference_note
+            cell.refernceDescripition.text = data.description
+            cell.greivanceStatus.text = data.status
+            
+            if  cell.greivanceStatus.text == "PROCESSING" ||  cell.greivanceStatus.text == "REQUESTED"
+            {
+//                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
+                cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            }
+//            else if cell.grievanceName.text == "PUBLIC GRIEVANCE " && cell.greivanceStatus.text == "COMPLETED"
+//            {
+////                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
+//                cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+//            }
+            else
+            {
+//                cell.grievanceName.backgroundColor = UIColor(red: 32.0/255, green: 128.0/255, blue: 152.0/255, alpha: 1.0)
+                  //cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+                   cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+            }
         }
-        return cell
+        
+             return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -174,6 +222,7 @@ extension Grievances: GrievanceView
     
     func setBannerGrievance(grievance_Data: [GrievanceData]) {
          grievanceData = grievance_Data
+         self.tableView.isHidden = false
          self.tableView?.reloadData()
     }
     

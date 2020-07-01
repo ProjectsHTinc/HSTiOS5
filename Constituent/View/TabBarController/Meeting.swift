@@ -28,7 +28,7 @@ class Meeting: UIViewController {
         }
         
         self.view.isHidden = false
-        self.navigationItem.title = "Meeting"
+        self.addCustomizedBackBtn(title:"  Meeting")
         /*set delegates*/
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
@@ -92,11 +92,19 @@ extension Meeting: UITableViewDelegate,UITableViewDataSource
         
         if cell.meetingStatus.text == "REQUESTED" || cell.meetingStatus.text == "PROCESSING"
         {
+            cell.meetingTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            cell.meetingdate.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            cell.titleImageGroup.image = UIImage(named: "meetingGroupIcon")
+            cell.calenderImage.image = UIImage(named: "meetingDate")
             cell.meetingStatus.backgroundColor = UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
         }
         else
         {
-            cell.meetingStatus.backgroundColor =  UIColor(red: 112.0/255, green: 173.0/255, blue: 71.0/255, alpha: 1.0)
+            cell.meetingTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+            cell.meetingdate.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+            cell.titleImageGroup.image = UIImage(named: "meetingCompleted")
+            cell.calenderImage.image = UIImage(named: "meetingCompletedDate")
+            cell.meetingStatus.backgroundColor =  UIColor(red: 112.0/255, green: 173.0/255, blue: 71.0/255, alpha: 0.6)
         }
 
         return cell

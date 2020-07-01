@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OTP: UIViewController,UITextFieldDelegate,LoginView {
+class OTP: UIViewController, UITextFieldDelegate, LoginView {
 
     var otp = String()
     var mobileNumber = String()
@@ -30,7 +30,7 @@ class OTP: UIViewController,UITextFieldDelegate,LoginView {
 
         // Do any additional setup after loading the view.
         /*Set Navigation Back Button*/
-        self.addCustomizedBackBtn(title:"OTP")
+        self.addCustomizedBackBtn(title:"  Verification Code")
         /*Set Delegates*/
         self.setTextfieldDelegates()
         self.textfiledOne.delegate = self
@@ -38,7 +38,7 @@ class OTP: UIViewController,UITextFieldDelegate,LoginView {
         self.textfieldThree.delegate = self
         self.textfieldfour.delegate = self
         /*Set Functions*/
-        self.setfuncForTextfiled ()
+//        self.setfuncForTextfiled ()
         /*Hide Activity View*/
         activityView.hidesWhenStopped = true
         
@@ -54,13 +54,13 @@ class OTP: UIViewController,UITextFieldDelegate,LoginView {
         self.textfieldfour.delegate = self
     }
     
-    func setfuncForTextfiled ()
-    {
-        textfiledOne.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
-        textfieldTwo.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
-        textfieldThree.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
-        textfieldfour.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
-    }
+//    func setfuncForTextfiled ()
+//    {
+//        textfiledOne.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+//        textfieldTwo.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+//        textfieldThree.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+//        textfieldfour.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+//    }
     
     @objc public override func backButtonClick()
     {
@@ -68,30 +68,78 @@ class OTP: UIViewController,UITextFieldDelegate,LoginView {
     }
     
     
-    @objc func textFieldDidChange(textField: UITextField){
-
-        let text = textField.text
-        if (text?.utf16.count)! >= 1{
-            switch textField{
-            case textfiledOne:
+//    @objc func textFieldDidChange(textField: UITextField){
+//
+//        let text = textField.text
+//        if (text?.utf16.count)! >= 1{
+//            switch textField{
+//            case textfiledOne:
+//                textfieldTwo.becomeFirstResponder()
+//            case textfieldTwo:
+//                textfieldThree.becomeFirstResponder()
+//            case textfieldThree:
+//                textfieldfour.becomeFirstResponder()
+//            case textfieldfour:
+//                textfieldfour.resignFirstResponder()
+//            default:
+//                break
+//            }
+//        }
+//        if  text?.count == 0 {
+//            switch textField{
+//            case textfiledOne:
+//                textfiledOne.becomeFirstResponder()
+//            case textfieldTwo:
+//                textfiledOne.becomeFirstResponder()
+//            case textfieldThree:
+//                textfieldTwo.becomeFirstResponder()
+//            case textfieldfour:
+//                textfieldThree.becomeFirstResponder()
+//            default:
+//                break
+//            }
+//        }
+//        else{
+//
+//        }
+//    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // On inputing value to textfield
+        if ((textField.text?.count)! < 1  && string.count > 0){
+            if(textField == textfiledOne)
+            {
                 textfieldTwo.becomeFirstResponder()
-            case textfieldTwo:
-                textfieldThree.becomeFirstResponder()
-            case textfieldThree:
-                textfieldfour.becomeFirstResponder()
-            case textfieldfour:
-                textfieldfour.resignFirstResponder()
-            default:
-                break
             }
-        }else{
+            if(textField == textfieldTwo)
+            {
+                textfieldThree.becomeFirstResponder()
+            }
+            if(textField == textfieldThree)
+            {
+                textfieldfour.becomeFirstResponder()
+            }
 
+            textField.text = string
+            return false
         }
+        else if ((textField.text?.count)! >= 1  && string.count == 0){
+            // on deleting value from Textfield
+            textfiledOne.text = ""
+            textfieldTwo.text = ""
+            textfieldThree.text = ""
+            textfieldfour.text = ""
+            textfiledOne.becomeFirstResponder()
+            return false
+        }
+        else if ((textField.text?.count)! >= 1  )
+        {
+            textField.text = string
+            return false
+        }
+        return true
     }
     
-    private func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
-    }
     
     @IBAction func resendAction(_ sender: Any)
     {
@@ -176,7 +224,6 @@ class OTP: UIViewController,UITextFieldDelegate,LoginView {
         if (segue.identifier == "to_constituentList")
         {
             let vc = segue.destination as! ConstituentList
-            vc.navigationItem.title = "Select Constituent"
             vc.mobilenum = self.mobileNumber
             vc.otp = self.otp
 
@@ -206,3 +253,4 @@ extension OTP: OtpView
     }
     
 }
+

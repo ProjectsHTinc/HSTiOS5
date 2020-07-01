@@ -105,8 +105,11 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
     
     func requestToOtp()
     {
-        presenter.attachView(view: self)
-        presenter.getOtp(mobile_no: mobileNumber.text!.replacingOccurrences(of: " ", with: ""))
+        DispatchQueue.main.async {
+            // Run UI Updates or call completion block
+            self.presenter.attachView(view: self)
+            self.presenter.getOtp(mobile_no: self.mobileNumber.text!.replacingOccurrences(of: " ", with: ""))
+        }
     }
     
     func startLoading()

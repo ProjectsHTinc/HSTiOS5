@@ -26,7 +26,9 @@ class Notification: UIViewController {
             return
         }
         self.view.isHidden = false
-        self.navigationItem.title = "Notification"
+        self.view.backgroundColor = UIColor.white
+        //self.navigationItem.title = "Notification"
+        self.addCustomizedBackBtn(title:"  Notification")
         /*set delegates*/
         self.tableView?.delegate = self
         self.tableView?.dataSource = self

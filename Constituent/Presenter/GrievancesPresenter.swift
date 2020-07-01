@@ -17,7 +17,7 @@ struct GrievanceData {
     let status : String
     let seeker_info: String
     let sub_category_name: String
-
+    let grievance_type: String
 }
 
 protocol GrievanceView: NSObjectProtocol {
@@ -54,7 +54,7 @@ class GrievancesPresenter {
                   if (grievances.count == 0){
                   } else {
                     let mappedUsers = grievances.map {
-                        return GrievanceData(grievance_name: "\($0.grievance_name ?? "")", petition_enquiry_no: "\($0.petition_enquiry_no ?? "")", reference_note: "\($0.reference_note ?? "")", description: "\($0.description ?? "")", status: "\($0.status ?? "")", seeker_info: "\($0.seeker_info ?? "")", sub_category_name: "\($0.sub_category_name ?? "")")
+                        return GrievanceData(grievance_name: "\($0.grievance_name ?? "")", petition_enquiry_no: "\($0.petition_enquiry_no ?? "")", reference_note: "\($0.reference_note ?? "")", description: "\($0.description ?? "")", status: "\($0.status ?? "")", seeker_info: "\($0.seeker_info ?? "")", sub_category_name: "\($0.sub_category_name ?? "")", grievance_type: "\($0.grievance_type ?? "")")
                        }
                     self.grievanceView?.setBannerGrievance(grievance_Data: mappedUsers)
                   }

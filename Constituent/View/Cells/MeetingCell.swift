@@ -13,6 +13,9 @@ class MeetingCell: UITableViewCell {
     @IBOutlet var meetingTitle: UILabel!
     @IBOutlet var meetingdate: UILabel!
     @IBOutlet var meetingStatus: SideRoundedCornerLabel!
+    @IBOutlet var titleImageGroup: UIImageView!
+    @IBOutlet var calenderImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

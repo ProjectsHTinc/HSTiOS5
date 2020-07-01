@@ -19,6 +19,8 @@ class GrievanceModel {
        var reference_note : String?
        var description : String?
        var status : String?
+       var grievance_type : String?
+
 
        // MARK: Instance Method
        func loadFromDictionary(_ dict: [String: AnyObject])
@@ -57,6 +59,10 @@ class GrievanceModel {
         
            if let data = dict["status"] as? String {
               self.status = data
+           }
+        
+           if let data = dict["grievance_type"] as? String {
+              self.grievance_type = data
            }
       }
       

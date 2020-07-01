@@ -119,97 +119,161 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "715CDA50-BE16-438F-9640-05A26EF8331C"
+            uuid = "361134B0-0906-41DA-8CC0-D45B5EF266C8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Constituent/View/ViewControllers/OTP.swift"
+            filePath = "Constituent/APIRouter/APIManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "startLoading()"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "createRequestForLogin(_:method:headers:parameters:onSuccess:onFailure:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "361134B0-0906-41DA-8CC0-D45B5EF266C8 - a3e81cb0a00de79c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Constituent.APIManager.createRequestForLogin(_: Swift.String, method: Alamofire.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, onSuccess: Swift.Optional&lt;(SwiftyJSON.JSON) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Constituent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/happysanztech/Documents/HSTiOS5/Constituent/Constituent/APIRouter/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "361134B0-0906-41DA-8CC0-D45B5EF266C8 - 87be72ca1bd2dc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Constituent.APIManager.createRequestForLogin(_: Swift.String, method: Alamofire.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, onSuccess: Swift.Optional&lt;(SwiftyJSON.JSON) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Constituent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/happysanztech/Documents/HSTiOS5/Constituent/Constituent/APIRouter/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DA8EF3E6-2DD5-438E-BFD4-3AEC4E655C73"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Constituent/View/ViewControllers/OTP.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "finishLoading()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FF206544-9432-4C75-A53B-C780B7B4A19D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Constituent/View/TabBarController/Grievances.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "204267E1-E083-48E3-8E3A-D0F84D9D2AAF"
+            uuid = "8525EE92-2BFE-4276-9F79-B6A994699D22"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Constituent/View/TabBarController/Profile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "setProfile(profile:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "segmentAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E3D7D37-AD22-43EE-A534-9F6E748268C3"
+            uuid = "59824F53-955F-4438-BAF9-4D5D38F69EE1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Constituent/View/TabBarController/Profile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "segmentAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F9C7B35A-0EFA-431A-BAD0-A4A18FE56BAF"
+            uuid = "04FA8D69-0C7C-4A01-BB7C-AE854CA177BC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SceneDelegate.swift"
+            filePath = "Constituent/View/TabBarController/Profile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "loadBaseContrloler()"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9C08B93A-3FB4-4B00-919B-9F36D9EA6087"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Constituent/APIRouter/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "callAPIOTP(mobile_no:otp:onSuccess:onFailure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9C08B93A-3FB4-4B00-919B-9F36D9EA6087 - 26bf8597e711c363"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Constituent.APIManager.callAPIOTP(mobile_no: Swift.String, otp: Swift.String, onSuccess: Swift.Optional&lt;(Swift.Array&lt;Constituent.OTPModel&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Constituent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/happysanztech/Documents/HSTiOS5/Constituent/Constituent/APIRouter/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "956">
+               </Location>
+               <Location
+                  uuid = "9C08B93A-3FB4-4B00-919B-9F36D9EA6087 - 7ff9445b03d022bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftyJSON.JSON) -&gt; () in Constituent.APIManager.callAPIOTP(mobile_no: Swift.String, otp: Swift.String, onSuccess: Swift.Optional&lt;(Swift.Array&lt;Constituent.OTPModel&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Constituent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/happysanztech/Documents/HSTiOS5/Constituent/Constituent/APIRouter/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "272"
+                  endingLineNumber = "272"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F8CAC8B-177C-4F81-BD00-0DB217BE0AC1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Constituent/View/TabBarController/News.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

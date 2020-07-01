@@ -80,8 +80,11 @@
 		6BADB5962497A8B20008BE03 /* TapToDismissKeypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */; };
 		6BADB5982497B0730008BE03 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5972497B0730008BE03 /* APIManager.swift */; };
 		6BADB59A2497B5C30008BE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5992497B5C30008BE03 /* Constants.swift */; };
+		6BAEC7D524AB667100C3934F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D324AB667100C3934F /* Container.swift */; };
+		6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D424AB667100C3934F /* EmptySegue.swift */; };
 		6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */; };
 		6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE3370249E0E9500D19CF9 /* Grievances.swift */; };
+		6BD79DA424A9E44B00EB32B8 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */; };
 		6BDE3F7E249890E40098549B /* ConstituencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F7D249890E40098549B /* ConstituencyList.swift */; };
 		6BDE3F802498A46F0098549B /* ConstituencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F7F2498A46F0098549B /* ConstituencyCell.swift */; };
 		6BDE3F822498A55D0098549B /* ConstituencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F812498A55D0098549B /* ConstituencyModel.swift */; };
@@ -205,8 +208,11 @@
 		6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToDismissKeypad.swift; sourceTree = "<group>"; };
 		6BADB5972497B0730008BE03 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6BADB5992497B5C30008BE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6BAEC7D324AB667100C3934F /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/Container.swift"; sourceTree = "<group>"; };
+		6BAEC7D424AB667100C3934F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptySegue.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/EmptySegue.swift"; sourceTree = "<group>"; };
 		6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedcornerForUIView.swift; sourceTree = "<group>"; };
 		6BCE3370249E0E9500D19CF9 /* Grievances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grievances.swift; sourceTree = "<group>"; };
+		6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		6BDE3F7D249890E40098549B /* ConstituencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituencyList.swift; sourceTree = "<group>"; };
 		6BDE3F7F2498A46F0098549B /* ConstituencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituencyCell.swift; sourceTree = "<group>"; };
 		6BDE3F812498A55D0098549B /* ConstituencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituencyModel.swift; sourceTree = "<group>"; };
@@ -239,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BD79DA424A9E44B00EB32B8 /* CoreNFC.framework in Frameworks */,
 				1F58F33AEB9D8140F8E2B77E /* Pods_Constituent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +270,7 @@
 		47DEA23CF2570DF4DE406770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */,
 				B4E538AD0234B6BE28FE8F54 /* Pods_Constituent.framework */,
 			);
 			name = Frameworks;
@@ -323,6 +331,8 @@
 				6B7B859F24A0C4B30051F38F /* PlantDonation.swift */,
 				6B7B85A724A0F0C60051F38F /* Notification.swift */,
 				6B7B85AB24A0F13B0051F38F /* NotificationDetail.swift */,
+				6BAEC7D324AB667100C3934F /* Container.swift */,
+				6BAEC7D424AB667100C3934F /* EmptySegue.swift */,
 				6BE3E43524A1E57B006CBAF8 /* ProfileDetails.swift */,
 				6B3DFA2F24A233E100D9BC31 /* ConstituencyInfo.swift */,
 			);
@@ -748,6 +758,7 @@
 				6BE3E43C24A1E8E9006CBAF8 /* ProfilePresenter.swift in Sources */,
 				6BE336E3249BB539005ADE6F /* ConstituentCell.swift in Sources */,
 				6BE3E43624A1E57B006CBAF8 /* ProfileDetails.swift in Sources */,
+				6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */,
 				6B60E1BB249CF9FB007B63D0 /* NewsFeedService.swift in Sources */,
 				6B9CDE14249CB3E6003F1158 /* Home.swift in Sources */,
 				6B7B85A024A0C4B30051F38F /* PlantDonation.swift in Sources */,
@@ -755,6 +766,7 @@
 				6BECB4FA24A32CD700FE31FC /* AppVersionModel.swift in Sources */,
 				6BE336E1249BAC40005ADE6F /* ActivityIndicator.swift in Sources */,
 				6B7B85A224A0C9B10051F38F /* PlantDonationModel.swift in Sources */,
+				6BAEC7D524AB667100C3934F /* Container.swift in Sources */,
 				6B4CD353249232CD00255E55 /* AlertController.swift in Sources */,
 				6BA5632224920121007BF788 /* AppDelegate.swift in Sources */,
 				6B7B859C24A0B7720051F38F /* MeetingService.swift in Sources */,
@@ -969,7 +981,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V986NC4N5;
 				INFOPLIST_FILE = Constituent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -990,7 +1002,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V986NC4N5;
 				INFOPLIST_FILE = Constituent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,6 +16,7 @@ class GrievancesDetail: UIViewController {
     var subCat_Name = String()
     var descripition_Text = String()
     var _refernce = String()
+    var _titlePE = String()
 
 
     @IBOutlet var constituencyName: UILabel!
@@ -26,11 +27,14 @@ class GrievancesDetail: UIViewController {
     @IBOutlet var descripitionText: UILabel!
     @IBOutlet var refernce: UILabel!
     @IBOutlet var status: SideRoundedCornerLabel!
+    @IBOutlet var titlePE: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.addCustomizedBackBtn(title:"  List of Grievance")
+        self.titlePE.text = _titlePE
         self.constituencyName.text = GlobalVariables.shared.selectedConstituencyName
         self.seekerType.text = seeker_Type
         self.pettionNumber.text = pettion_Number

@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileDetails: UITableViewController {
     
-    var presenterProfile = ProfilePresenter(profileService: ProfileService())
     var profiledata = [ProfileData]()
 
     @IBOutlet var fatherName: UITextField!
@@ -34,14 +33,8 @@ class ProfileDetails: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.backgroundColor = .white
-        self.callAPI()
-
-    }
-    
-    func callAPI ()
-    {
-         presenterProfile.attachView(view: self)
-         presenterProfile.getProfile(user_id: GlobalVariables.shared.user_id)
+        profiledata = UserDefaults.standard.getProfileInfo(ProfileData.self, forKey: UserDefaultsKey.profileInfokey.rawValue)
+        self.setAllValues()
     }
     
     func setAllValues ()
@@ -58,6 +51,7 @@ class ProfileDetails: UITableViewController {
         self.pincode.text = profiledata[0].pin_code
         self.voterId.text = profiledata[0].voter_id_no
         self.adharNumber.text = profiledata[0].aadhaar_no
+        
     }
 
     // MARK: - Table view data source
@@ -90,12 +84,32 @@ class ProfileDetails: UITableViewController {
     
     @IBAction func signOut(_ sender: Any) {
         self.clearAllData()
-        self.performSegue(withIdentifier: "to_SignOut", sender: self)
     }
     
     func clearAllData ()
     {
-        UserDefaults.standard.clearUserData()
+        // Create the alert controller
+        let alertController = UIAlertController(title: Globals.alertTitle, message: "Are you sure want to sign out", preferredStyle: .alert)
+
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            UserDefaults.standard.clearUserData()
+            self.performSegue(withIdentifier: "to_SignOut", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     /*
     // Override to support conditional editing of the table view.
@@ -144,23 +158,3 @@ class ProfileDetails: UITableViewController {
 
 }
 
-extension ProfileDetails : ProfileView
-{
-    func startLoading() {
-        self.view.activityStartAnimating()
-    }
-    
-    func finishLoading() {
-        self.view.activityStopAnimating()
-    }
-    
-    func setProfile(profile: [ProfileData]) {
-         profiledata = profile
-         self.setAllValues()
-    }
-    
-    func setEmpty(errorMessage: String) {
-         AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {
-         })
-    }
-}

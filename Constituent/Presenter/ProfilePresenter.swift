@@ -66,7 +66,8 @@ class ProfilePresenter {
                       let mappedUsers = profile.map {
                         return ProfileData(id: "\($0.id ?? "")", full_name: "\($0.full_name ?? "")", address: "\($0.address ?? "")", pin_code: "\($0.pin_code ?? "")", father_husband_name: "\($0.father_husband_name ?? "")", mobile_no: "\($0.mobile_no ?? "")", whatsapp_no: "\($0.whatsapp_no ?? "")", email_id: "\($0.email_id ?? "")", religion_name: "\($0.religion_name ?? "")", constituency_name: "\($0.constituency_name ?? "")", paguthi_name: "\($0.paguthi_name ?? "")", ward_name: "\($0.ward_name ?? "")", booth_name: "\($0.booth_name ?? "")", booth_address: "\($0.booth_address ?? "")", serial_no: "\($0.serial_no ?? "")", aadhaar_no: "\($0.aadhaar_no ?? "")", voter_id_no: "\($0.voter_id_no ?? "")", dob: "\($0.dob ?? "")", gender: "\($0.gender ?? "")", profile_picture: "\($0.profile_picture ?? "")")
                          }
-                      self.profileView?.setProfile(profile: mappedUsers)
+                        self.profileView?.setProfile(profile: mappedUsers)
+                        UserDefaults.standard.setProfileInfo(mappedUsers, forKey: UserDefaultsKey.profileInfokey.rawValue)
                     }
                 },
                 onFailure: { (errorMessage) in

@@ -24,7 +24,7 @@ class PlantDonation: UIViewController, PlantDonationView {
             return
         }
         
-        self.navigationItem.title = "Plant Donation"
+        self.addCustomizedBackBtn(title:"  Plant Donation")
         plantPresener.attachView(view: self)
         plantPresener.getPlantDonation(user_id: GlobalVariables.shared.user_id)
     }

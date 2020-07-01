@@ -10,9 +10,8 @@ import UIKit
 
 class ConstituencyInfo: UITableViewController {
 
-    var presenterProfile = ProfilePresenter(profileService: ProfileService())
     var profiledata = [ProfileData]()
-    
+
     @IBOutlet var paguthi: UITextField!
     @IBOutlet var ward: UITextField!
     @IBOutlet var booth: UITextField!
@@ -27,14 +26,10 @@ class ConstituencyInfo: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.backgroundColor = .white
-        self.callAPI()
+        profiledata = UserDefaults.standard.getProfileInfo(ProfileData.self, forKey: UserDefaultsKey.profileInfokey.rawValue)
+        self.setAllValues()
     }
     
-    func callAPI ()
-    {
-         presenterProfile.attachView(view: self)
-         presenterProfile.getProfile(user_id: GlobalVariables.shared.user_id)
-    }
 
     func setAllValues ()
     {
@@ -112,23 +107,4 @@ class ConstituencyInfo: UITableViewController {
     */
 
 }
-extension ConstituencyInfo : ProfileView
-{
-    func startLoading() {
-        self.view.activityStartAnimating()
-    }
-    
-    func finishLoading() {
-        self.view.activityStopAnimating()
-    }
-    
-    func setProfile(profile: [ProfileData]) {
-         profiledata = profile
-         self.setAllValues()
-    }
-    
-    func setEmpty(errorMessage: String) {
-         AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {
-         })
-    }
-}
+

@@ -50,6 +50,11 @@ class News: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+             /*set tableview poistion */
+             tableView.setContentOffset(.zero, animated: true)
+    }
+    
     @objc public override func rightButtonClick()
     {
         self.performSegue(withIdentifier: "to_Notification", sender: self)
@@ -57,7 +62,7 @@ class News: UIViewController {
     
     func startTimer() {
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scrollToNextCell), userInfo: nil, repeats: true);
+            timer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(scrollToNextCell), userInfo: nil, repeats: true);
         }
     }
     
@@ -196,7 +201,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
         let news_feed = newsFeed[indexPath.row]
         self.news_Image = news_feed.image_file_name
         self.news_title = news_feed.title
-        self.news_Date = news_feed.news_date
+        self.news_Date = news_feed.date_elapsed
         self.news_Details = news_feed.details
         print(news_feed.title,news_feed.news_date,news_feed.details)
 

@@ -16,14 +16,14 @@ extension UIViewController
             btnLeftMenu.setTitle(title, for: .normal)
             btnLeftMenu.setImage(UIImage(named: "backbutton"), for: UIControl.State())
             btnLeftMenu.addTarget(self, action: #selector(backButtonClick), for: UIControl.Event.touchUpInside)
-            btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            btnLeftMenu.frame = CGRect(x: 00, y: 0, width: 30, height: 30)
             let barButton = UIBarButtonItem(customView: btnLeftMenu)
             self.navigationItem.leftBarButtonItem = barButton
     }
     
     @objc public func backButtonClick()
     {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     func addrightButton(bg_ImageName:String)

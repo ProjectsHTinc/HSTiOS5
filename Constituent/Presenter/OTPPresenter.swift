@@ -14,6 +14,7 @@ struct OtpData:Codable {
     let id : String
     let profile_picture : String
     let dob : String
+    let serial_no : String
 
 }
 
@@ -50,7 +51,7 @@ class OTPPresenter {
                   if (otp.count == 0){
                   } else {
                     let mappedUsers = otp.map {
-                        return OtpData(full_name: "\($0.full_name ?? "")", id: "\($0.id ?? "")", profile_picture: "\($0.profile_picture ?? "")", dob: "\($0.dob ?? "")")
+                        return OtpData(full_name: "\($0.full_name ?? "")", id: "\($0.id ?? "")", profile_picture: "\($0.profile_picture ?? "")", dob: "\($0.dob ?? "")", serial_no: "\($0.serial_no ?? "")")
                        }
                     self.otpView?.setOtp(otpValue: mappedUsers)
                     UserDefaults.standard.setOtpArray(mappedUsers, forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)

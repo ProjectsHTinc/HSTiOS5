@@ -18,6 +18,7 @@ protocol AppVersionView : NSObjectProtocol {
     func setAppversion(status:String)
     func setEmptyAppver(errorMessage:String)
 }
+
 class AppVersionPresenter {
     
         private let appVersionService:AppVersionService

@@ -86,11 +86,11 @@ extension Meeting: UITableViewDelegate,UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MeetingCell
         let data = meetingeData[indexPath.row]
-        cell.meetingTitle.text = data.meeting_title
+        cell.meetingTitle.text = data.meeting_title.capitalized
         cell.meetingdate.text = data.meeting_date
-        cell.meetingStatus.text = data.meeting_status
+        cell.meetingStatus.text = data.meeting_status.capitalized
         
-        if cell.meetingStatus.text == "REQUESTED" || cell.meetingStatus.text == "PROCESSING"
+        if cell.meetingStatus.text == "Requested" || cell.meetingStatus.text == "Processing"
         {
             cell.meetingTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
             cell.meetingdate.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)

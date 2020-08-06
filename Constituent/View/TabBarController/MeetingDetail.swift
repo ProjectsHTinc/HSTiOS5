@@ -23,8 +23,8 @@ class MeetingDetail: UIViewController {
         // Do any additional setup after loading the view.
         /*Set Values*/
         self.addCustomizedBackBtn(title:"  Details of Meeting")
-        self.meetingTitle.text = meeting_Title
-        self.meetingDiscrption.text = meeting_Discrption
+        self.meetingTitle.text = meeting_Title.capitalized
+        self.meetingDiscrption.text = meeting_Discrption.capitalized
         self.meetingDate.text =  String(format: "%@ %@", "Date :",meeting_Date) 
     }
     

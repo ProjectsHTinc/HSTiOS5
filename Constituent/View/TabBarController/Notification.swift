@@ -85,7 +85,7 @@ extension Notification: UITableViewDelegate,UITableViewDataSource
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NotificationCell
          let data = notificationData[indexPath.row]
          cell.notificationTime.text = data.created_time
-         cell.notificationText.text = data.notification_text
+         cell.notificationText.text = data.notification_text.capitalized
          return cell
     }
     

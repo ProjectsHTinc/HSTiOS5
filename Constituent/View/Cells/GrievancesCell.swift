@@ -11,10 +11,10 @@ import UIKit
 class GrievancesCell: UITableViewCell {
 
     @IBOutlet var pettionNumber: UILabel!
-    @IBOutlet var grievanceName: SideRoundedCornerLabel!
-    @IBOutlet var refernceNote: UILabel!
-    @IBOutlet var refernceDescripition: UILabel!
-    @IBOutlet var greivanceStatus: UILabel!
+    @IBOutlet var grievanceName: UILabel!
+    @IBOutlet var subCategoery: UILabel!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var status: SideRoundedCornerLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

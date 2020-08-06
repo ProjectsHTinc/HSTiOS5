@@ -33,10 +33,10 @@ class ConstituencyInfo: UITableViewController {
 
     func setAllValues ()
     {
-        self.paguthi.text = profiledata[0].paguthi_name
-        self.ward.text = profiledata[0].ward_name
-        self.booth.text = profiledata[0].booth_name
-        self.boothAddress.text = profiledata[0].booth_address
+        self.paguthi.text = profiledata[0].paguthi_name.capitalized
+        self.ward.text = profiledata[0].ward_name.capitalized
+        self.booth.text = profiledata[0].booth_name.capitalized
+        self.boothAddress.text = profiledata[0].booth_address.capitalized
         self.serialNumber.text = profiledata[0].serial_no
     }
     // MARK: - Table view data source

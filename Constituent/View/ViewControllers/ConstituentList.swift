@@ -14,13 +14,26 @@ class ConstituentList: UIViewController, UITableViewDelegate, UITableViewDataSou
     var otp = String()
     var mobilenum = String()
     var otpData = [OtpData]()
+    var from = String()
 
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         self.addCustomizedBackBtn(title:"  Select Constituent")
+         if from == "Otp"
+         {
+            self.title = "Select Constituent"
+            /*Set navigation back button hidden*/
+            self.navigationItem.setHidesBackButton(true, animated: true);
+         }
+         else
+         {
+            self.addCustomizedBackBtn(title:"  Select Constituent")
+            /*Show navigation back button hidden*/
+            self.navigationItem.setHidesBackButton(false, animated: true);
+
+         }
          otpData = UserDefaults.standard.getsOtpArrayData(OtpData.self, forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)
          self.tableView.reloadData()
          self.tableView.backgroundColor = .white
@@ -34,8 +47,8 @@ class ConstituentList: UIViewController, UITableViewDelegate, UITableViewDataSou
         
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConstituentCell
          let constituent = otpData[indexPath.row]
-         cell.name.text = constituent.full_name
-         cell.serialnumber.text = ("Serial Number - \(constituent.id)")
+         cell.name.text = constituent.full_name.capitalized
+         cell.serialnumber.text = ("Serial Number - \(constituent.serial_no)")
          cell.dob.text = ("Date of Birth - \(constituent.dob)")
          cell.constituentImage.sd_setImage(with: URL(string: constituent.profile_picture), placeholderImage: UIImage(named: "placeholder.png"))
          return cell

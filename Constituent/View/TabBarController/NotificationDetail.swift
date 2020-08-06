@@ -24,7 +24,7 @@ class NotificationDetail: UIViewController {
         self.addCustomizedBackBtn(title:"  Notification")
         self.notificationDate.text = notification_Date
         self.notificationTime.text = notification_Time
-        self.notificationText.text = notification_Text
+        self.notificationText.text = notification_Text.capitalized
 
     }
 

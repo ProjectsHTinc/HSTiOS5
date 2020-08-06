@@ -82,6 +82,7 @@
 		6BADB59A2497B5C30008BE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5992497B5C30008BE03 /* Constants.swift */; };
 		6BAEC7D524AB667100C3934F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D324AB667100C3934F /* Container.swift */; };
 		6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D424AB667100C3934F /* EmptySegue.swift */; };
+		6BB71BB924D807A70049187F /* SentenceCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB71BB824D807A70049187F /* SentenceCase.swift */; };
 		6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */; };
 		6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE3370249E0E9500D19CF9 /* Grievances.swift */; };
 		6BD79DA424A9E44B00EB32B8 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */; };
@@ -210,6 +211,7 @@
 		6BADB5992497B5C30008BE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6BAEC7D324AB667100C3934F /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/Container.swift"; sourceTree = "<group>"; };
 		6BAEC7D424AB667100C3934F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptySegue.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/EmptySegue.swift"; sourceTree = "<group>"; };
+		6BB71BB824D807A70049187F /* SentenceCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceCase.swift; sourceTree = "<group>"; };
 		6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedcornerForUIView.swift; sourceTree = "<group>"; };
 		6BCE3370249E0E9500D19CF9 /* Grievances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grievances.swift; sourceTree = "<group>"; };
 		6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
@@ -486,6 +488,7 @@
 				6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */,
 				6BA5620C249B780100F87E74 /* CustomNavigationBarBackButtonWithTitle.swift */,
 				6BE07A2A249F4192007AA000 /* OneSidedRoundedCorners.swift */,
+				6BB71BB824D807A70049187F /* SentenceCase.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				6BE336E3249BB539005ADE6F /* ConstituentCell.swift in Sources */,
 				6BE3E43624A1E57B006CBAF8 /* ProfileDetails.swift in Sources */,
 				6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */,
+				6BB71BB924D807A70049187F /* SentenceCase.swift in Sources */,
 				6B60E1BB249CF9FB007B63D0 /* NewsFeedService.swift in Sources */,
 				6B9CDE14249CB3E6003F1158 /* Home.swift in Sources */,
 				6B7B85A024A0C4B30051F38F /* PlantDonation.swift in Sources */,

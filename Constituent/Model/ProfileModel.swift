@@ -119,8 +119,8 @@ class ProfileModel {
       
       // MARK: Class Method
       class func build(_ dict: [String: AnyObject]) -> ProfileModel {
-          let profileModel = ProfileModel()
-          profileModel.loadFromDictionary(dict)
-          return profileModel
+            let profileModel = ProfileModel()
+            profileModel.loadFromDictionary(dict)
+            return profileModel
       }
 }

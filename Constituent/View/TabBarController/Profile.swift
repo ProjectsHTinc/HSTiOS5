@@ -67,7 +67,7 @@ class Profile: UIViewController {
     func setAllValues ()
     {
         self.userImageView.sd_setImage(with: URL(string: profiledata[0].profile_picture), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
-        self.userName.text = profiledata[0].full_name
+        self.userName.text = profiledata[0].full_name.capitalized
         self.userNumber.text = String(format: "%@%@", "Serial Number : ",profiledata[0].serial_no)
     }
     

@@ -26,7 +26,7 @@ class NewsDetail: UIViewController {
 
         // Do any additional setup after loading the view.
         self.bannerImage.sd_setImage(with: URL(string: newsImage), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
-        self.titleNews.text = newstitle 
+        self.titleNews.text = newstitle.capitalized
         self.date.text = newsDate
         self.detailsNews.attributedText = stringFromHtml(string: newsDetails)
                 

@@ -39,15 +39,15 @@ class ProfileDetails: UITableViewController {
     
     func setAllValues ()
     {
-        self.fatherName.text = profiledata[0].father_husband_name
-        self.guardianName.text = profiledata[0].full_name
-        self.emailId.text = profiledata[0].email_id
+        self.fatherName.text = profiledata[0].father_husband_name.capitalized
+        // self.guardianName.text = profiledata[0].full_name
+        self.emailId.text = profiledata[0].email_id.capitalized
         self.watsappNumber.text = profiledata[0].whatsapp_no
         self.phoneNumber.text = profiledata[0].mobile_no
         self.dob.text = profiledata[0].dob
-        self.gender.text = profiledata[0].gender
-        self.religion.text = profiledata[0].religion_name
-        self.address.text = profiledata[0].address
+        self.gender.text = profiledata[0].gender.capitalized
+        self.religion.text = profiledata[0].religion_name.capitalized
+        self.address.text = profiledata[0].address.capitalized
         self.pincode.text = profiledata[0].pin_code
         self.voterId.text = profiledata[0].voter_id_no
         self.adharNumber.text = profiledata[0].aadhaar_no

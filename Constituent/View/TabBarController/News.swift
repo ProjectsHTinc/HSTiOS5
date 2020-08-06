@@ -41,16 +41,17 @@ class News: UIViewController {
         /*Set Delegate For CollectionView*/
         bannerCollectionView?.delegate = self
         bannerCollectionView?.dataSource = self
-        /*Call API*/
-        self.callAPI()
         /*Set background Color*/
         self.view.backgroundColor = UIColor.white
         self.tableView?.backgroundColor = UIColor.white
         self.bannerCollectionView.backgroundColor = UIColor.white
+        self.bannerCollectionView?.isPagingEnabled = true
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+             /*Call API*/
+             self.callAPI()
              /*set tableview poistion */
              tableView.setContentOffset(.zero, animated: true)
     }
@@ -186,7 +187,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsFeedCell
         let news_feed = newsFeed[indexPath.row]
-        cell.newsTitle.text = news_feed.title
+        cell.newsTitle.text = news_feed.title.capitalized
         cell.hours.text = news_feed.news_date
         cell.newFeedImage.sd_setImage(with: URL(string: news_feed.image_file_name), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
         return cell
@@ -201,7 +202,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
         let news_feed = newsFeed[indexPath.row]
         self.news_Image = news_feed.image_file_name
         self.news_title = news_feed.title
-        self.news_Date = news_feed.date_elapsed
+        self.news_Date = news_feed.news_date
         self.news_Details = news_feed.details
         print(news_feed.title,news_feed.news_date,news_feed.details)
 
@@ -210,7 +211,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
     
 }
 
-extension News: UICollectionViewDelegate,UICollectionViewDataSource {
+extension News: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
    {
@@ -234,5 +235,10 @@ extension News: UICollectionViewDelegate,UICollectionViewDataSource {
     {
         return UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
     }
+    
+    func collectionView(_collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+            return 0.0
+    }
+    
 }
 

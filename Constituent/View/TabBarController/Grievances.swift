@@ -19,6 +19,8 @@ class Grievances: UIViewController {
     var subCat_Name = String()
     var descripition_Text = String()
     var _refernce = String()
+    var _Status = String()
+    var _grevType = String()
 
     @IBOutlet var segmentcontrol: UISegmentedControl!
     @IBOutlet var constitunecyName: UILabel!
@@ -99,7 +101,6 @@ class Grievances: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "to_GrievanceDetail")
         {
-            if segmentcontrol.selectedSegmentIndex == 0{
                 let vc = segue.destination as! GrievancesDetail
                 vc.seeker_Type = seeker_Type
                 vc.pettion_Number = pettion_Number
@@ -107,22 +108,9 @@ class Grievances: UIViewController {
                 vc.subCat_Name = subCat_Name
                 vc.descripition_Text = descripition_Text
                 vc._refernce = _refernce
+                vc._Status = _Status
                 vc._titlePE = "Pettition Number"
-            }
-            else
-            {
-                let vc = segue.destination as! GrievancesDetail
-                vc.seeker_Type = seeker_Type
-                vc.pettion_Number = pettion_Number
-                vc.grievance_Name = grievance_Name
-                vc.subCat_Name = subCat_Name
-                vc.descripition_Text = descripition_Text
-                vc._refernce = _refernce
-                vc._titlePE = "Enquiry Number"
-
-            }
-
-
+                vc._grevType = self._grevType
         }
     }
     
@@ -141,54 +129,24 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
         if segmentcontrol.selectedSegmentIndex == 0
         {
             let data = grievanceData[indexPath.row]
-            cell.pettionNumber.text = String(format: "%@ %@", "Pettion Number : ",data.petition_enquiry_no)
-            cell.grievanceName.text = data.grievance_type
-            cell.refernceNote.text = data.grievance_name
-            cell.refernceDescripition.text = data.sub_category_name
-            cell.greivanceStatus.text = data.status
-            
-            if cell.greivanceStatus.text == "PROCESSING" || cell.greivanceStatus.text == "REQUESTED"
-            {
-//                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-                cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            let grievance_type = data.grievance_type
+            if grievance_type == "P"{
+                cell.pettionNumber.text = String(format: "%@ %@", "Pettion Number - ",data.petition_enquiry_no)
             }
-//            else if cell.greivanceStatus.text == "COMPLETED"
-//            {
-////                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-//                cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
-//            }
+            else{
+                cell.pettionNumber.text = String(format: "%@ %@", "Enquiry Number - ",data.petition_enquiry_no)
+            }
+            cell.grievanceName.text = data.grievance_name.capitalized
+            cell.subCategoery.text = data.sub_category_name.capitalized
+            cell.status.text = data.status.capitalized
+            cell.date.text = data.grievance_date
+            if cell.status.text == "Processing" || cell.status.text == "Requested"
+            {
+                cell.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            }
             else
             {
-//                cell.grievanceName.backgroundColor = UIColor(red: 32.0/255, green: 128.0/255, blue: 152.0/255, alpha: 1.0)
-                  //cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
-                  cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
-
-            }
-        }
-        else
-        {
-            let data = grievanceData[indexPath.row]
-            cell.pettionNumber.text = String(format: "%@ %@", "Enquiry Number : ",data.petition_enquiry_no)
-            cell.grievanceName.text = data.grievance_type
-            cell.refernceNote.text = data.reference_note
-            cell.refernceDescripition.text = data.description
-            cell.greivanceStatus.text = data.status
-            
-            if  cell.greivanceStatus.text == "PROCESSING" ||  cell.greivanceStatus.text == "REQUESTED"
-            {
-//                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-                cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
-            }
-//            else if cell.grievanceName.text == "PUBLIC GRIEVANCE " && cell.greivanceStatus.text == "COMPLETED"
-//            {
-////                cell.grievanceName.backgroundColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
-//                cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
-//            }
-            else
-            {
-//                cell.grievanceName.backgroundColor = UIColor(red: 32.0/255, green: 128.0/255, blue: 152.0/255, alpha: 1.0)
-                  //cell.greivanceStatus.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
-                   cell.greivanceStatus.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
+                  cell.status.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
             }
         }
         
@@ -205,8 +163,10 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
         self.pettion_Number = data.petition_enquiry_no
         self.grievance_Name = data.grievance_name
         self.subCat_Name = data.sub_category_name
-        self.descripition_Text = data.description
+        self.descripition_Text = data.description.capitalizingFirstLetter()
         self._refernce = data.reference_note
+        self._Status = data.status
+        self._grevType = data.grievance_type
         self.performSegue(withIdentifier: "to_GrievanceDetail", sender: self)
     }
     

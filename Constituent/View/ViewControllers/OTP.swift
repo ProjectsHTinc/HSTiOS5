@@ -38,10 +38,11 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
         self.textfieldThree.delegate = self
         self.textfieldfour.delegate = self
         /*Set Functions*/
-//        self.setfuncForTextfiled ()
+        //Self.setfuncForTextfiled ()
         /*Hide Activity View*/
         activityView.hidesWhenStopped = true
-        
+        /*Tap anywhere to hide keypad*/
+        self.hideKeyboardWhenTappedAround()
 
     }
     
@@ -226,6 +227,7 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
             let vc = segue.destination as! ConstituentList
             vc.mobilenum = self.mobileNumber
             vc.otp = self.otp
+            vc.from = "Otp"
 
         }
     }

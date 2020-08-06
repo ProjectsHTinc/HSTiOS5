@@ -54,7 +54,7 @@ class PlantDonation: UIViewController, PlantDonationView {
     
     func setPlantDonation(plant: PlantDonationData) {
 
-         self.plantName.text = plant.name_of_plant
+         self.plantName.text = plant.name_of_plant.capitalized
          self.plantNumber.text = plant.no_of_plant
          self.recivedDate.text = plant.created_at
     }

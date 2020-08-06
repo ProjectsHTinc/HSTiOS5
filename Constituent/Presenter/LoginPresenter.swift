@@ -11,6 +11,7 @@ import UIKit
 struct loginData {
     let mobile_otp: String
 }
+
 protocol LoginView : NSObjectProtocol {
 
     func startLoading()

@@ -129,13 +129,26 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
         if segmentcontrol.selectedSegmentIndex == 0
         {
             let data = grievanceData[indexPath.row]
-            let grievance_type = data.grievance_type
-            if grievance_type == "P"{
-                cell.pettionNumber.text = String(format: "%@ %@", "Pettion Number - ",data.petition_enquiry_no)
+            //let grievance_type = data.grievance_type
+            cell.pettionNumber.text = String(format: "%@ %@", "Pettion Number - ",data.petition_enquiry_no)
+            cell.grievanceName.text = data.grievance_name.capitalized
+            cell.subCategoery.text = data.sub_category_name.capitalized
+            cell.status.text = data.status.capitalized
+            cell.date.text = data.grievance_date
+            if cell.status.text == "Processing" || cell.status.text == "Requested"
+            {
+                cell.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
             }
-            else{
-                cell.pettionNumber.text = String(format: "%@ %@", "Enquiry Number - ",data.petition_enquiry_no)
+            else
+            {
+                  cell.status.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
             }
+        }
+        else
+        {
+            let data = grievanceData[indexPath.row]
+            //let grievance_type = data.grievance_type
+            cell.pettionNumber.text = String(format: "%@ %@", "Enquiry Number - ",data.petition_enquiry_no)
             cell.grievanceName.text = data.grievance_name.capitalized
             cell.subCategoery.text = data.sub_category_name.capitalized
             cell.status.text = data.status.capitalized

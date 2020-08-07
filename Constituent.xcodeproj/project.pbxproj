@@ -75,13 +75,13 @@
 		6BA5BF39249A26A7002227E9 /* ClientUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5BF38249A26A7002227E9 /* ClientUrlModel.swift */; };
 		6BA5BF41249A47AC002227E9 /* ClientUrlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5BF40249A47AC002227E9 /* ClientUrlService.swift */; };
 		6BA5BF43249A47B4002227E9 /* ClientUrlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5BF42249A47B4002227E9 /* ClientUrlPresenter.swift */; };
+		6BAD065A24DD876E00BEE973 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAD065924DD876E00BEE973 /* Container.swift */; };
+		6BAD065C24DD877600BEE973 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAD065B24DD877600BEE973 /* EmptySegue.swift */; };
 		6BADB59224977EE50008BE03 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB59124977EE50008BE03 /* Login.swift */; };
 		6BADB59424979D2F0008BE03 /* ShadowEffectForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB59324979D2E0008BE03 /* ShadowEffectForUIView.swift */; };
 		6BADB5962497A8B20008BE03 /* TapToDismissKeypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */; };
 		6BADB5982497B0730008BE03 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5972497B0730008BE03 /* APIManager.swift */; };
 		6BADB59A2497B5C30008BE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB5992497B5C30008BE03 /* Constants.swift */; };
-		6BAEC7D524AB667100C3934F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D324AB667100C3934F /* Container.swift */; };
-		6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC7D424AB667100C3934F /* EmptySegue.swift */; };
 		6BB71BB924D807A70049187F /* SentenceCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB71BB824D807A70049187F /* SentenceCase.swift */; };
 		6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */; };
 		6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE3370249E0E9500D19CF9 /* Grievances.swift */; };
@@ -204,13 +204,13 @@
 		6BA5BF38249A26A7002227E9 /* ClientUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientUrlModel.swift; sourceTree = "<group>"; };
 		6BA5BF40249A47AC002227E9 /* ClientUrlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientUrlService.swift; sourceTree = "<group>"; };
 		6BA5BF42249A47B4002227E9 /* ClientUrlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientUrlPresenter.swift; sourceTree = "<group>"; };
+		6BAD065924DD876E00BEE973 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		6BAD065B24DD877600BEE973 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
 		6BADB59124977EE50008BE03 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		6BADB59324979D2E0008BE03 /* ShadowEffectForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEffectForUIView.swift; sourceTree = "<group>"; };
 		6BADB5952497A8B20008BE03 /* TapToDismissKeypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToDismissKeypad.swift; sourceTree = "<group>"; };
 		6BADB5972497B0730008BE03 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6BADB5992497B5C30008BE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6BAEC7D324AB667100C3934F /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/Container.swift"; sourceTree = "<group>"; };
-		6BAEC7D424AB667100C3934F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptySegue.swift; path = "../../../../../../Downloads/ContainerView-master/Container View/EmptySegue.swift"; sourceTree = "<group>"; };
 		6BB71BB824D807A70049187F /* SentenceCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceCase.swift; sourceTree = "<group>"; };
 		6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedcornerForUIView.swift; sourceTree = "<group>"; };
 		6BCE3370249E0E9500D19CF9 /* Grievances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grievances.swift; sourceTree = "<group>"; };
@@ -333,8 +333,8 @@
 				6B7B859F24A0C4B30051F38F /* PlantDonation.swift */,
 				6B7B85A724A0F0C60051F38F /* Notification.swift */,
 				6B7B85AB24A0F13B0051F38F /* NotificationDetail.swift */,
-				6BAEC7D324AB667100C3934F /* Container.swift */,
-				6BAEC7D424AB667100C3934F /* EmptySegue.swift */,
+				6BAD065924DD876E00BEE973 /* Container.swift */,
+				6BAD065B24DD877600BEE973 /* EmptySegue.swift */,
 				6BE3E43524A1E57B006CBAF8 /* ProfileDetails.swift */,
 				6B3DFA2F24A233E100D9BC31 /* ConstituencyInfo.swift */,
 			);
@@ -761,7 +761,6 @@
 				6BE3E43C24A1E8E9006CBAF8 /* ProfilePresenter.swift in Sources */,
 				6BE336E3249BB539005ADE6F /* ConstituentCell.swift in Sources */,
 				6BE3E43624A1E57B006CBAF8 /* ProfileDetails.swift in Sources */,
-				6BAEC7D624AB667100C3934F /* EmptySegue.swift in Sources */,
 				6BB71BB924D807A70049187F /* SentenceCase.swift in Sources */,
 				6B60E1BB249CF9FB007B63D0 /* NewsFeedService.swift in Sources */,
 				6B9CDE14249CB3E6003F1158 /* Home.swift in Sources */,
@@ -770,7 +769,6 @@
 				6BECB4FA24A32CD700FE31FC /* AppVersionModel.swift in Sources */,
 				6BE336E1249BAC40005ADE6F /* ActivityIndicator.swift in Sources */,
 				6B7B85A224A0C9B10051F38F /* PlantDonationModel.swift in Sources */,
-				6BAEC7D524AB667100C3934F /* Container.swift in Sources */,
 				6B4CD353249232CD00255E55 /* AlertController.swift in Sources */,
 				6BA5632224920121007BF788 /* AppDelegate.swift in Sources */,
 				6B7B859C24A0B7720051F38F /* MeetingService.swift in Sources */,
@@ -798,10 +796,12 @@
 				6BA5BF35249A1FE1002227E9 /* GlobalVariables.swift in Sources */,
 				6BE3E43824A1E668006CBAF8 /* ProfileModel.swift in Sources */,
 				6B9CDE0C249C8202003F1158 /* UserDefault.swift in Sources */,
+				6BAD065A24DD876E00BEE973 /* Container.swift in Sources */,
 				6BE336E5249BB559005ADE6F /* ConstituentList.swift in Sources */,
 				6BE07A31249F643B007AA000 /* GrivencesService.swift in Sources */,
 				6BADB5962497A8B20008BE03 /* TapToDismissKeypad.swift in Sources */,
 				6B3DFA3024A233E100D9BC31 /* ConstituencyInfo.swift in Sources */,
+				6BAD065C24DD877600BEE973 /* EmptySegue.swift in Sources */,
 				6B7B85B024A0F57A0051F38F /* NotificationService.swift in Sources */,
 				6B7B859824A0B4D40051F38F /* MeetingDetail.swift in Sources */,
 				6BDE3F842498A6B00098549B /* ConstituencyService.swift in Sources */,

@@ -511,7 +511,7 @@
                                                                         <constraint firstAttribute="height" constant="15" id="jW8-hO-PxS"/>
                                                                         <constraint firstAttribute="width" constant="219" id="tWK-qS-uzS"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                     <color key="textColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -531,7 +531,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="fe0-PN-jsn"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -540,8 +540,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="M9D-xA-m9G"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -841,14 +841,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meanwhile, Tamil Nadu CM K Palaniswami downplayed the water crisis in the state and claimed that the &quot;issue was " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjh-ah-gJm">
-                                                <rect key="frame" x="22.5" y="61" width="330" height="60"/>
+                                                <rect key="frame" x="22.5" y="61" width="330" height="59.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V41-q3-rCN">
-                                                <rect key="frame" x="28" y="129" width="319" height="1"/>
+                                                <rect key="frame" x="28" y="128.5" width="319" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DtI-i2-hOQ"/>
@@ -858,7 +858,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7W-4X-EcE">
-                                                <rect key="frame" x="28" y="174" width="319" height="1"/>
+                                                <rect key="frame" x="28" y="173.5" width="319" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="buF-3G-k9g"/>
@@ -868,7 +868,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date : 25.02.2020" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lz-W2-ZEb">
-                                                <rect key="frame" x="63" y="144" width="284" height="20"/>
+                                                <rect key="frame" x="63" y="143.5" width="284" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="4gC-xu-Fgf"/>
@@ -879,7 +879,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meetingDate" translatesAutoresizingMaskIntoConstraints="NO" id="hEF-Df-KiE">
-                                                <rect key="frame" x="33" y="144" width="20" height="20"/>
+                                                <rect key="frame" x="33" y="143.5" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="1gl-IU-eDX"/>
                                                     <constraint firstAttribute="width" constant="20" id="yW6-Tw-gjy"/>
@@ -1350,7 +1350,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting assigned Date and time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jq-s3-mRa">
-                                                <rect key="frame" x="34" y="112" width="307" height="18"/>
+                                                <rect key="frame" x="34" y="112" width="307" height="17.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="307" id="PaC-FB-1Ao"/>
                                                 </constraints>
@@ -1436,10 +1436,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQY-ZN-GfT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8f-G2-2WV">
-                                                <rect key="frame" x="14" y="15" width="348" height="594"/>
+                                                <rect key="frame" x="14" y="15" width="348" height="610"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Virus Wasn't Born in Tamil Nadu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DX-Zd-aGP">
                                                         <rect key="frame" x="8" y="201" width="335" height="20"/>
@@ -1451,14 +1451,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-cE-MSN">
-                                                        <rect key="frame" x="8" y="235" width="334" height="53"/>
+                                                        <rect key="frame" x="8" y="235" width="334" height="70"/>
                                                         <string key="text">The comment came even as Tamil Nadu has been battling the worst effects of Covid-19, which made a late entry into the state but has affected </string>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HB9-7S-a1X">
-                                                        <rect key="frame" x="8" y="327" width="133" height="16"/>
+                                                        <rect key="frame" x="8" y="344" width="133" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="133" id="EYk-Jp-SKO"/>
                                                             <constraint firstAttribute="height" constant="16" id="SOo-zw-3Wi"/>
@@ -1468,14 +1468,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywN-Ie-8Cj">
-                                                        <rect key="frame" x="8" y="357" width="329" height="141"/>
+                                                        <rect key="frame" x="8" y="374" width="329" height="140"/>
                                                         <string key="text">The comment came even as Tamil Nadu has been battling the worst effects of Covid-19, which made a late entry into the state but has affected more than 90% of the districts in less than three weeks. The DMK hit out at Palaniswami for his statement, calling it a "classic misfiring of government priorities". "The chief minister has a known p</string>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6og-XP-sQa" customClass="SideRoundedCornerLabel" customModule="Constituent" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="510" width="103" height="25"/>
+                                                        <rect key="frame" x="8" y="526" width="103" height="25"/>
                                                         <color key="backgroundColor" red="0.99215686270000003" green="0.65098039220000004" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="103" id="O4p-YI-DmZ"/>
@@ -1552,7 +1552,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-pp-TfW">
-                                                        <rect key="frame" x="8" y="308" width="334" height="1"/>
+                                                        <rect key="frame" x="8" y="325" width="334" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="oTV-gj-u2s"/>
@@ -2591,10 +2591,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCh-MN-AvH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="616.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="614.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDo-II-uQv">
-                                                <rect key="frame" x="28" y="22" width="317" height="529.5"/>
+                                                <rect key="frame" x="28" y="22" width="317" height="527.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gar-BJ-h9n">
                                                         <rect key="frame" x="0.0" y="0.0" width="317" height="123"/>
@@ -2648,7 +2648,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Virus Wasn't Born in Tamil Nadu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-E6-LXM">
-                                                        <rect key="frame" x="10" y="169" width="307" height="14.5"/>
+                                                        <rect key="frame" x="10" y="169" width="307" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="307" id="DZF-hh-J8i"/>
                                                         </constraints>
@@ -2657,7 +2657,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCn-6v-hp7">
-                                                        <rect key="frame" x="10" y="187.5" width="307" height="309.5"/>
+                                                        <rect key="frame" x="10" y="187" width="307" height="308"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="307" id="gBG-Nw-2hg"/>
                                                         </constraints>

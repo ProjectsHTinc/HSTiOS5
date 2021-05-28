@@ -12,7 +12,7 @@ struct Globals {
        static let mobileType = "1";
        static let alertTitle = "Constituent";
        static let LoginAlertMessage = "mobile number is empty";
-       static let ConstituencyAlertMessage = "Please the constituency";
+       static let ConstituencyAlertMessage = "Please select the Constituency";
        static let OTPAlertMessage = "Otp is incorrect";
 
 }

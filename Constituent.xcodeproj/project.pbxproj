@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F58F33AEB9D8140F8E2B77E /* Pods_Constituent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E538AD0234B6BE28FE8F54 /* Pods_Constituent.framework */; };
 		6B3DFA3024A233E100D9BC31 /* ConstituencyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFA2F24A233E100D9BC31 /* ConstituencyInfo.swift */; };
 		6B4CD353249232CD00255E55 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4CD352249232CD00255E55 /* AlertController.swift */; };
 		6B60E1B4249CF278007B63D0 /* NewsBannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B60E1B3249CF277007B63D0 /* NewsBannerImageCell.swift */; };
@@ -85,7 +84,6 @@
 		6BB71BB924D807A70049187F /* SentenceCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB71BB824D807A70049187F /* SentenceCase.swift */; };
 		6BBA7029249A066000C6D4CC /* RoundedcornerForUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA7028249A066000C6D4CC /* RoundedcornerForUIView.swift */; };
 		6BCE3371249E0E9500D19CF9 /* Grievances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE3370249E0E9500D19CF9 /* Grievances.swift */; };
-		6BD79DA424A9E44B00EB32B8 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */; };
 		6BDE3F7E249890E40098549B /* ConstituencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F7D249890E40098549B /* ConstituencyList.swift */; };
 		6BDE3F802498A46F0098549B /* ConstituencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F7F2498A46F0098549B /* ConstituencyCell.swift */; };
 		6BDE3F822498A55D0098549B /* ConstituencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE3F812498A55D0098549B /* ConstituencyModel.swift */; };
@@ -109,6 +107,7 @@
 		6BECB4FA24A32CD700FE31FC /* AppVersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4F924A32CD700FE31FC /* AppVersionModel.swift */; };
 		6BECB4FC24A32E2300FE31FC /* AppVersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4FB24A32E2300FE31FC /* AppVersionService.swift */; };
 		6BECB4FE24A32E7B00FE31FC /* AppVersionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECB4FD24A32E7B00FE31FC /* AppVersionPresenter.swift */; };
+		79ED06BB2660AB1800AB11C8 /* Pods_Constituent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E538AD0234B6BE28FE8F54 /* Pods_Constituent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,8 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BD79DA424A9E44B00EB32B8 /* CoreNFC.framework in Frameworks */,
-				1F58F33AEB9D8140F8E2B77E /* Pods_Constituent.framework in Frameworks */,
+				79ED06BB2660AB1800AB11C8 /* Pods_Constituent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,7 +984,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V986NC4N5;
 				INFOPLIST_FILE = Constituent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1009,7 +1007,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V986NC4N5;
 				INFOPLIST_FILE = Constituent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

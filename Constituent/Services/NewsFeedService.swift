@@ -10,9 +10,9 @@ import UIKit
 
 class NewsFeedService {
     
-      public func callAPINewsFeed(user_id:String, onSuccess successCallback: ((_ bewsFeed: [NewsFeedModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+      public func callAPINewsFeed(user_id:String,dynamic_db:String, onSuccess successCallback: ((_ bewsFeed: [NewsFeedModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
           APIManager.instance.callAPINewsFeed(
-            user_id: user_id, onSuccess: { (newsfeed) in
+            user_id: user_id,dynamic_db:dynamic_db, onSuccess: { (newsfeed) in
                   successCallback?(newsfeed)
               },
               onFailure: { (errorMessage) in

@@ -46,7 +46,9 @@ class News: UIViewController {
         self.tableView?.backgroundColor = UIColor.white
         self.bannerCollectionView.backgroundColor = UIColor.white
         self.bannerCollectionView?.isPagingEnabled = true
-        
+//        let tabBar = self.tabBarController!.tabBar
+//        tabBar.selectionIndicatorImage = UIImage().createSelectionIndicator(color: UIColor.blue, size: CGSize(width: tabBar.frame.width/CGFloat(tabBar.items!.count), height: tabBar.frame.height), lineWidth: 2.0)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +107,8 @@ class News: UIViewController {
         }
         presenterNewsFeedPage.attachView(view: self)
         presenterBannerImage.attachView(view: self)
-        presenterNewsFeedPage.getNewsFeed(user_id: GlobalVariables.shared.user_id)
-        presenterBannerImage.getBannerImage(user_id:  GlobalVariables.shared.user_id)
+        presenterNewsFeedPage.getNewsFeed(user_id: GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
+        presenterBannerImage.getBannerImage(user_id:  GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
     
 
@@ -127,8 +129,6 @@ class News: UIViewController {
             vc.newsDetails = self.news_Details
         }
     }
-    
-
 }
 
 extension News: NewsFeedView,BannerImageView
@@ -188,8 +188,9 @@ extension News: UITableViewDataSource,UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsFeedCell
         let news_feed = newsFeed[indexPath.row]
         cell.newsTitle.text = news_feed.title.capitalized
-        cell.hours.text = news_feed.news_date
+        cell.hours.attributedText = stringFromHtml(string: news_feed.details)
         cell.newFeedImage.sd_setImage(with: URL(string: news_feed.image_file_name), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
+        cell.dateLbl.text = news_feed.news_date
         return cell
     }
     
@@ -205,10 +206,8 @@ extension News: UITableViewDataSource,UITableViewDelegate {
         self.news_Date = news_feed.news_date
         self.news_Details = news_feed.details
         print(news_feed.title,news_feed.news_date,news_feed.details)
-
         self.performSegue(withIdentifier: "to_newsfeedDetail", sender: self)
     }
-    
 }
 
 extension News: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -240,5 +239,38 @@ extension News: UICollectionViewDelegate,UICollectionViewDataSource,UICollection
             return 0.0
     }
     
+    func stringFromHtml(string: String) -> NSAttributedString? {
+       do {
+           let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+           if let d = data {
+               let str = try NSAttributedString(data: d,
+                                                options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+                                                documentAttributes: nil)
+               return str
+           }
+       } catch {
+       }
+       return nil
+   }
 }
 
+//extension UIImage {
+//    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+//        color.setFill()
+//        UIRectFill(CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth))
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return image!
+//    }
+//}
+extension UIImage {
+    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}

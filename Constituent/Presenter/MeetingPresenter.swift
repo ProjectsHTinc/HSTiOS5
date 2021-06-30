@@ -13,6 +13,7 @@ struct MeetingData {
     let meeting_date : String
     let meeting_status : String
     let meeting_title : String
+    let created_at : String
 }
 
 protocol MeetingView: NSObjectProtocol {
@@ -40,15 +41,15 @@ class MeetingPresenter {
           meetingView = nil
       }
       
-    func getMeeting(user_id:String) {
+    func getMeeting(user_id:String,dynamic_db:String) {
           self.meetingView?.startLoading()
           meetingService.callAPIMeeting(
-            user_id: user_id, onSuccess: { (meeting) in
+            user_id: user_id,dynamic_db:dynamic_db ,onSuccess: { (meeting) in
                   self.meetingView?.finishLoading()
                   if (meeting.count == 0){
                   } else {
                     let mappedUsers = meeting.map {
-                        return MeetingData(meeting_detail: "\($0.meeting_detail ?? "")", meeting_date: "\($0.meeting_date ?? "")", meeting_status: "\($0.meeting_status ?? "")", meeting_title: "\($0.meeting_title ?? "")")
+                        return MeetingData(meeting_detail: "\($0.meeting_detail ?? "")",meeting_date: "\($0.meeting_date ?? "")", meeting_status: "\($0.meeting_status ?? "")", meeting_title: "\($0.meeting_title ?? "")", created_at: "\($0.created_at ?? "")")
                        }
                     self.meetingView?.setMeeting(meeting: mappedUsers)
                   }

@@ -39,10 +39,10 @@ class NotificationPresenter {
             notificationView = nil
         }
         
-      func getNotifiation(user_id:String) {
+      func getNotifiation(user_id:String,dynamic_db:String) {
             self.notificationView?.startLoading()
             notificationService.callAPINotification(
-              user_id: user_id, onSuccess: { (notification) in
+                user_id: user_id, dynamic_db:dynamic_db ,onSuccess: { (notification) in
                     self.notificationView?.finishLoading()
                     if (notification.count == 0){
                     } else {

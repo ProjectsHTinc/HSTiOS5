@@ -10,9 +10,9 @@ import UIKit
 
 class OTPService {
 
-      public func callAPIOTP(mobile_no:String, otp:String, onSuccess successCallback: ((_ otp: [OTPModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+    public func callAPIOTP(mobile_no:String, otp:String,dynamic_db:String, onSuccess successCallback: ((_ otp: [OTPModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
           APIManager.instance.callAPIOTP(
-            mobile_no: mobile_no, otp: otp, onSuccess: { (loginData) in
+            mobile_no: mobile_no, otp: otp, dynamic_db: dynamic_db, onSuccess: { (loginData) in
                   successCallback?(loginData)
               },
               onFailure: { (errorMessage) in

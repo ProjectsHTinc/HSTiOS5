@@ -43,6 +43,8 @@ class Grievances: UIViewController {
         self.setUpSegmentControl ()
         /*Call API*/
         self.callPettitionService (type:"P")
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
         
     func checkInterConnection () -> Bool
@@ -60,18 +62,23 @@ class Grievances: UIViewController {
     func setUpSegmentControl ()
     {
 
-        segmentcontrol.selectedSegmentIndex = 0
-        segmentcontrol.backgroundColor = .white
-        segmentcontrol.tintColor = .white
-        segmentcontrol.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
-            NSAttributedString.Key.foregroundColor: UIColor.black
-            ], for: .normal)
+//        segmentcontrol.selectedSegmentIndex = 0
+//        segmentcontrol.backgroundColor = .white
+//        segmentcontrol.tintColor = .white
+//        segmentcontrol.setTitleTextAttributes([
+//            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
+//            NSAttributedString.Key.foregroundColor: UIColor.black
+//            ], for: .normal)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleTextAttributes1 = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        segmentcontrol.setTitleTextAttributes(titleTextAttributes1, for: .normal)
+        segmentcontrol.setTitleTextAttributes(titleTextAttributes, for: .selected)
 
-        segmentcontrol.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ], for: .selected)
+//        segmentcontrol.setTitleTextAttributes([
+//            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
+////            NSAttributedString.Key.foregroundColor: UIColor.white
+//        ], for: .selected)
     }
 
     @IBAction func segmentaction(_ sender: Any)
@@ -89,7 +96,7 @@ class Grievances: UIViewController {
     func callPettitionService (type:String)
     {
         grievancePresener.attachView(view: self)
-        grievancePresener.getGrievances(user_id: GlobalVariables.shared.user_id, type: type)
+        grievancePresener.getGrievances(user_id: GlobalVariables.shared.user_id, type: type,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
     
     

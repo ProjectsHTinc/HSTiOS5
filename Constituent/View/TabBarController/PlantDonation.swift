@@ -26,7 +26,9 @@ class PlantDonation: UIViewController, PlantDonationView {
         
         self.addCustomizedBackBtn(title:"  Plant Donation")
         plantPresener.attachView(view: self)
-        plantPresener.getPlantDonation(user_id: GlobalVariables.shared.user_id)
+        plantPresener.getPlantDonation(user_id: GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
     
     func checkInterConnection () -> Bool

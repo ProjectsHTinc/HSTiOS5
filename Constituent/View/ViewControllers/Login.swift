@@ -11,9 +11,9 @@ import UIKit
 class Login: UIViewController,UITextFieldDelegate, LoginView {
         
     @IBOutlet var mobileNumber: UITextField!
-    @IBOutlet var selectedConstituency: UITextField!
+//    @IBOutlet var selectedConstituency: UITextField!
     @IBOutlet var activityView: UIActivityIndicatorView!
-    @IBOutlet var constituencyOutlet: UIButton!
+//    @IBOutlet var constituencyOutlet: UIButton!
     
     /*Get Login Otp*/
     let presenter = LoginPresenter(loginService: LoginService())
@@ -27,10 +27,11 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
         self.hideKeyboardWhenTappedAround()
         /*Hide Activity View*/
         activityView.hidesWhenStopped = true
+        addCustomizedBackBtn(title: "Login")
         /*Set PlaceHolder textColor*/
-        selectedConstituency.attributedPlaceholder =
-        NSAttributedString(string: "Select Constituency", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        
+//        selectedConstituency.attributedPlaceholder =
+//        NSAttributedString(string: "Select Constituency", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+//
     }
         
     @IBAction func loginAction(_ sender: Any)
@@ -42,35 +43,35 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
         self.requestToOtp()
     }
     
-    @IBAction func constituencyListAction(_ sender: Any)
-    {
-        guard Reachability.isConnectedToNetwork() == true else {
-              AlertController.shared.offlineAlert(targetVc: self, complition: {
-                //Custom action code
-             })
-             return
-        }
-        
-        //self.selectedConstituency.text = ""
-        self.popOverButtonClick(sender: self.constituencyOutlet)
-//        self.performSegue(withIdentifier: "toConstituencyList", sender: self)
-    }
+//    @IBAction func constituencyListAction(_ sender: Any)
+//    {
+//        guard Reachability.isConnectedToNetwork() == true else {
+//              AlertController.shared.offlineAlert(targetVc: self, complition: {
+//                //Custom action code
+//             })
+//             return
+//        }
+//
+//        //self.selectedConstituency.text = ""
+//        self.popOverButtonClick(sender: self.constituencyOutlet)
+////        self.performSegue(withIdentifier: "toConstituencyList", sender: self)
+//    }
     
-    func popOverButtonClick (sender: UIButton)
-    {
-        let savingsInformationViewController = storyboard?.instantiateViewController(withIdentifier: "constituencyList") as! ConstituencyList
-            savingsInformationViewController.delegate = self
-            savingsInformationViewController.strSaveText = self.selectedConstituency.text! as NSString
-            savingsInformationViewController.modalPresentationStyle = .popover
-        if let popoverController = savingsInformationViewController.popoverPresentationController {
-                popoverController.sourceView = sender
-                popoverController.sourceRect = sender.bounds
-                popoverController.permittedArrowDirections = .any
-                popoverController.delegate = self
-            }
-        present(savingsInformationViewController, animated: true, completion: nil)
-     }
-    
+//    func popOverButtonClick (sender: UIButton)
+//    {
+//        let savingsInformationViewController = storyboard?.instantiateViewController(withIdentifier: "constituencyList") as! ConstituencyList
+//            savingsInformationViewController.delegate = self
+//            savingsInformationViewController.strSaveText = self.selectedConstituency.text! as NSString
+//            savingsInformationViewController.modalPresentationStyle = .popover
+//        if let popoverController = savingsInformationViewController.popoverPresentationController {
+//                popoverController.sourceView = sender
+//                popoverController.sourceRect = sender.bounds
+//                popoverController.permittedArrowDirections = .any
+//                popoverController.delegate = self
+//            }
+//        present(savingsInformationViewController, animated: true, completion: nil)
+//     }
+//
     
     func CheckValuesAreEmpty () -> Bool{
         
@@ -81,12 +82,12 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
              return false
         }
         
-        guard self.selectedConstituency.text?.count != 0  else {
-            AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: Globals.ConstituencyAlertMessage, complition: {
-                
-              })
-             return false
-         }
+//        guard self.selectedConstituency.text?.count != 0  else {
+//            AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: Globals.ConstituencyAlertMessage, complition: {
+//
+//              })
+//             return false
+//         }
         
         guard self.mobileNumber.text?.count != 0  else {
             AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: Globals.LoginAlertMessage, complition: {
@@ -108,7 +109,7 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
         DispatchQueue.main.async {
             // Run UI Updates or call completion block
             self.presenter.attachView(view: self)
-            self.presenter.getOtp(mobile_no: self.mobileNumber.text!.replacingOccurrences(of: " ", with: ""))
+            self.presenter.getOtp(mobile_no: self.mobileNumber.text!.replacingOccurrences(of: " ", with: ""),dynamic_db:GlobalVariables.shared.dynamic_Db)
         }
     }
     
@@ -222,7 +223,7 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
 extension Login : UIPopoverPresentationControllerDelegate, ConstituencyListDelegate
 {
      func saveText(strText: String) {
-        self.selectedConstituency.text = strText
+//        self.selectedConstituency.text = strText
       }
 
       // MARK: - UIPopoverPresentationControllerDelegate

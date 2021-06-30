@@ -10,9 +10,9 @@ import UIKit
 
 class ProfileService {
 
-      public func callAPIProfile(user_id:String, onSuccess successCallback: ((_ profile: [ProfileModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+      public func callAPIProfile(user_id:String,dynamic_db:String, onSuccess successCallback: ((_ profile: [ProfileModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
           APIManager.instance.callAPIProfile(
-            user_id: user_id, onSuccess: { (profile) in
+            user_id: user_id,dynamic_db:dynamic_db, onSuccess: { (profile) in
                   successCallback?(profile)
               },
               onFailure: { (errorMessage) in

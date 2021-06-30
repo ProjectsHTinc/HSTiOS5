@@ -66,51 +66,9 @@ class ProfileDetails: UITableViewController {
         return 1
     }
 
-    @IBAction func changeUser(_ sender: Any) {
-        self.performSegue(withIdentifier: "to_ConstituencyList", sender: self)
-    }
+   
     
-    @IBAction func aboutUs(_ sender: Any) {
-        
-    }
     
-    @IBAction func terms(_ sender: Any) {
-        
-    }
-    
-    @IBAction func shareApp(_ sender: Any) {
-        
-    }
-    
-    @IBAction func signOut(_ sender: Any) {
-        self.clearAllData()
-    }
-    
-    func clearAllData ()
-    {
-        // Create the alert controller
-        let alertController = UIAlertController(title: Globals.alertTitle, message: "Are you sure want to sign out", preferredStyle: .alert)
-
-        // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
-            UIAlertAction in
-            NSLog("OK Pressed")
-            UserDefaults.standard.clearUserData()
-            self.performSegue(withIdentifier: "to_SignOut", sender: self)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
-            UIAlertAction in
-            NSLog("Cancel Pressed")
-        }
-
-        // Add the actions
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-
-        // Present the controller
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

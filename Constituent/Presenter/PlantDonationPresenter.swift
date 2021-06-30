@@ -41,10 +41,10 @@ class PlantDonationPresenter {
             plantDonationView = nil
         }
         
-      func getPlantDonation(user_id:String) {
+      func getPlantDonation(user_id:String,dynamic_db:String) {
             self.plantDonationView?.startLoading()
             plantDonationService.callAPIPlant(
-              user_id: user_id, onSuccess: { (plant) in
+                user_id: user_id,dynamic_db:dynamic_db ,onSuccess: { (plant) in
                     self.plantDonationView?.finishLoading()
                 self.plantDonationView?.setPlantDonation(plant: PlantDonationData(no_of_plant: "\(plant.no_of_plant ?? "")", name_of_plant: "\(plant.name_of_plant ?? "")", created_at: "\(plant.created_at ?? "")"))
                 },

@@ -29,7 +29,6 @@ class NewsDetail: UIViewController {
         self.titleNews.text = newstitle.capitalized
         self.date.text = newsDate
         self.detailsNews.attributedText = stringFromHtml(string: newsDetails)
-                
     }
     
      func stringFromHtml(string: String) -> NSAttributedString? {
@@ -45,18 +44,7 @@ class NewsDetail: UIViewController {
         }
         return nil
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
 
 

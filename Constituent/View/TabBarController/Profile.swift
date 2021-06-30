@@ -30,9 +30,10 @@ class Profile: UIViewController {
         self.view.isHidden = false
         self.navigationItem.title = "Profile"
         profiledata = UserDefaults.standard.getProfileInfo(ProfileData.self, forKey: UserDefaultsKey.profileInfokey.rawValue)
-        self.setAllValues()
+//        self.setAllValues()
         self.setUpControl ()
-
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
     
     func checkInterConnection () -> Bool
@@ -46,7 +47,6 @@ class Profile: UIViewController {
         }
               return true
     }
-    
     
     func setUpControl ()
     {
@@ -68,7 +68,7 @@ class Profile: UIViewController {
     {
         self.userImageView.sd_setImage(with: URL(string: profiledata[0].profile_picture), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
         self.userName.text = profiledata[0].full_name.capitalized
-        self.userNumber.text = String(format: "%@%@", "Serial Number : ",profiledata[0].serial_no)
+        self.userNumber.text = profiledata[0].constituency_name.capitalized
     }
     
     @IBAction func segmentAction(_ sender: Any) {

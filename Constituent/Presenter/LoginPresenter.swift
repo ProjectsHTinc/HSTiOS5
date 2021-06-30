@@ -37,10 +37,10 @@ class LoginPresenter {
         loginView = nil
     }
     
-    func getOtp(mobile_no:String) {
+    func getOtp(mobile_no:String,dynamic_db:String) {
         self.loginView?.startLoading()
         loginService.callAPILogin(
-            mobile_no: mobile_no, onSuccess: { (login) in
+            mobile_no: mobile_no,dynamic_db:dynamic_db, onSuccess: { (login) in
                 self.loginView?.setLoginOtp(login_otp: login.mobile_otp!)
                 self.loginView?.finishLoading()
             },

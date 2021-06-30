@@ -17,4 +17,5 @@ class GlobalVariables: NSObject {
     var userCount = Int()
     var user_id = String()
     var user_name = String()
+    var dynamic_Db = String()
 }

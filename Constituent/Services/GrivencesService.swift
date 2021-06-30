@@ -10,9 +10,9 @@ import UIKit
 
 class GrivencesService {
       
-      public func callAPIGrivance(user_id:String, type:String, onSuccess successCallback: ((_ grievance: [GrievanceModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+      public func callAPIGrivance(user_id:String, type:String,dynamic_db:String, onSuccess successCallback: ((_ grievance: [GrievanceModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
           APIManager.instance.callAPIGrivance(
-            user_id: user_id, type: type, onSuccess: { (grievance) in
+            user_id: user_id, type: type,dynamic_db:dynamic_db, onSuccess: { (grievance) in
                   successCallback?(grievance)
               },
               onFailure: { (errorMessage) in

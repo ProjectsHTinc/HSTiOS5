@@ -35,6 +35,8 @@ class Meeting: UIViewController {
         self.tableView?.backgroundColor = .white
         /*Call API*/
         self.callAPI()
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
     
     func checkInterConnection () -> Bool
@@ -52,7 +54,7 @@ class Meeting: UIViewController {
     func callAPI()
     {
         meetingPresener.attachView(view: self)
-        meetingPresener.getMeeting(user_id: GlobalVariables.shared.user_id)
+        meetingPresener.getMeeting(user_id: GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
     
     

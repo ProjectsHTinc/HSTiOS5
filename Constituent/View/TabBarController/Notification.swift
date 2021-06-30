@@ -35,6 +35,8 @@ class Notification: UIViewController {
         self.tableView?.backgroundColor = .white
         /*Call API*/
         self.callAPI()
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
     
     func checkInterConnection () -> Bool
@@ -52,10 +54,9 @@ class Notification: UIViewController {
     func callAPI ()
     {
          notificationPresener.attachView(view: self)
-         notificationPresener.getNotifiation(user_id: GlobalVariables.shared.user_id)
+         notificationPresener.getNotifiation(user_id: GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
 
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -70,8 +71,6 @@ class Notification: UIViewController {
             vc.notification_Text = notification_Text
         }
     }
-    
-
 }
 
 extension Notification: UITableViewDelegate,UITableViewDataSource

@@ -10,6 +10,7 @@ import UIKit
 
 class NewsFeedCell: UITableViewCell {
 
+    @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet var newFeedImage: UIImageView!
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var hours: UILabel!

@@ -39,7 +39,7 @@ class AppVersionPresenter {
       func getAppVersion(version_code:String) {
           self.appVersionView?.startLoadingAppver()
           appVersionService.callAPIAppversion(
-              version_code: version_code, onSuccess: { (appversion) in
+            version_code: version_code, onSuccess: { (appversion) in
                   self.appVersionView?.setAppversion(status: appversion.status!)
                   self.appVersionView?.finishLoadingAppver()
               },

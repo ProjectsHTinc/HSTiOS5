@@ -17,6 +17,7 @@ class ConstituencyInfo: UITableViewController {
     @IBOutlet var booth: UITextField!
     @IBOutlet var boothAddress: UITextField!
     @IBOutlet var serialNumber: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +30,6 @@ class ConstituencyInfo: UITableViewController {
         profiledata = UserDefaults.standard.getProfileInfo(ProfileData.self, forKey: UserDefaultsKey.profileInfokey.rawValue)
         self.setAllValues()
     }
-    
 
     func setAllValues ()
     {

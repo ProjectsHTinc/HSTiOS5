@@ -56,10 +56,10 @@ class ProfilePresenter {
             profileView = nil
         }
         
-      func getProfile(user_id:String) {
+      func getProfile(user_id:String,dynamic_db:String) {
             self.profileView?.startLoading()
             profileService.callAPIProfile(
-              user_id: user_id, onSuccess: { (profile) in
+                user_id: user_id,dynamic_db:dynamic_db, onSuccess: { (profile) in
                     self.profileView?.finishLoading()
                     if (profile.count == 0){
                     } else {

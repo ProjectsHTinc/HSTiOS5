@@ -30,12 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let constituencyName = UserDefaults.standard.object(forKey: UserDefaultsKey.constituencyNamekey.rawValue) ?? ""
         let welcomeScreen = UserDefaults.standard.object(forKey: UserDefaultsKey.splashkey.rawValue) ?? ""
         
-        if (welcomeScreen as! String == "true")
-        {
+//        if (welcomeScreen as! String == "true")
+//        {
             if (((user_id as AnyObject) as! String) == "") {
                 guard let window = self.window else { return }
                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "login") as! Login
+                let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "getStart") as! GetStartedScreen
                 window.rootViewController = newViewcontroller
                 window.makeKeyAndVisible()
             }
@@ -51,15 +51,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.rootViewController = newViewcontroller
                 window.makeKeyAndVisible()
             }
-        }
-        else
-        {
-            guard let window = self.window else { return }
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "welcomeScreen") as! WelcomeScreen
-            window.rootViewController = newViewcontroller
-            window.makeKeyAndVisible()
-        }
+//        }
+//        else
+//        {
+//            guard let window = self.window else { return }
+//            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "welcomeScreen") as! WelcomeScreen
+//            window.rootViewController = newViewcontroller
+//            window.makeKeyAndVisible()
+//        }
 
     }
 

@@ -43,10 +43,10 @@ class OTPPresenter {
           otpView = nil
       }
     
-      func getOtpForOtpPage(mobile_no:String, otp:String) {
+    func getOtpForOtpPage(mobile_no:String, otp:String,dynamic_db:String) {
           self.otpView?.startLoadingOtp()
           oTPService.callAPIOTP(
-            mobile_no: mobile_no, otp: otp, onSuccess: { (otp) in
+            mobile_no: mobile_no, otp: otp, dynamic_db: dynamic_db, onSuccess: { (otp) in
                   self.otpView?.finishLoadingOtp()
                   if (otp.count == 0){
                   } else {

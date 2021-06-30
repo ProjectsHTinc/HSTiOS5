@@ -38,6 +38,8 @@ class GrievancesDetail: UIViewController {
 
         // Do any additional setup after loading the view.
         self.addCustomizedBackBtn(title:"  List of Grievance")
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
         //self.titlePE.text = _titlePE
         let Type = _grevType
         if Type == "E"{

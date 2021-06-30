@@ -145,7 +145,7 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
     @IBAction func resendAction(_ sender: Any)
     {
         presenterLoginService.attachView(view: self)
-        presenterLoginService.getOtp(mobile_no: self.mobileNumber)
+        presenterLoginService.getOtp(mobile_no: self.mobileNumber,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
     
     func startLoading()
@@ -176,7 +176,7 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
             return
         }
         
-        self.otpSuccess ()
+        self.otpSuccess () 
     }
     
     func CheckValuesAreEmpty () -> Bool{
@@ -211,7 +211,7 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
     func otpSuccess ()
     {
         presenterOtpService.attachView(view: self)
-        presenterOtpService.getOtpForOtpPage(mobile_no: self.mobileNumber, otp: self.otp)
+        presenterOtpService.getOtpForOtpPage(mobile_no: self.mobileNumber, otp: self.otp,dynamic_db:GlobalVariables.shared.dynamic_Db)
         
     }
     

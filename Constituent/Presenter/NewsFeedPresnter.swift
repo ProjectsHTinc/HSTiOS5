@@ -43,10 +43,10 @@ class NewsFeedPresnter {
         newsFeedView = nil
     }
 
-    func getNewsFeed(user_id:String) {
+    func getNewsFeed(user_id:String,dynamic_db:String) {
         self.newsFeedView?.startLoadingNewsFeed()
         newsFeedService.callAPINewsFeed(
-          user_id: user_id, onSuccess: { (newsfeed) in
+            user_id: user_id,dynamic_db:dynamic_db, onSuccess: { (newsfeed) in
                 self.newsFeedView?.finishLoadingNewsFeed()
                 if (newsfeed.count == 0){
                 } else {

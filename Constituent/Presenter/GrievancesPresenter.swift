@@ -48,10 +48,10 @@ class GrievancesPresenter {
           grievanceView = nil
       }
       
-    func getGrievances(user_id:String, type:String) {
+    func getGrievances(user_id:String, type:String,dynamic_db:String) {
           self.grievanceView?.startLoadingGrievance()
           grivencesService.callAPIGrivance(
-            user_id: user_id, type: type, onSuccess: { (grievances) in
+            user_id: user_id, type: type,dynamic_db:dynamic_db ,onSuccess: { (grievances) in
                   self.grievanceView?.finishLoadingGrievance()
                   if (grievances.count == 0){
                   } else {

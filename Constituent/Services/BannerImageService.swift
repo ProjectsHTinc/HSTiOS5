@@ -10,9 +10,9 @@ import UIKit
 
 class BannerImageService {
     
-      public func callAPIBannerImage(user_id:String, onSuccess successCallback: ((_ bannerImage: [BannerImageModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+      public func callAPIBannerImage(user_id:String, dynamic_db:String,onSuccess successCallback: ((_ bannerImage: [BannerImageModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
           APIManager.instance.callAPIBannerImage(
-            user_id: user_id, onSuccess: { (bannerimage) in
+            user_id: user_id,dynamic_db:dynamic_db, onSuccess: { (bannerimage) in
                   successCallback?(bannerimage)
               },
               onFailure: { (errorMessage) in

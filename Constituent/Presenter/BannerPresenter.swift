@@ -39,10 +39,10 @@ class BannerPresenter {
         bannerImageView = nil
     }
     
-    func getBannerImage(user_id:String) {
+    func getBannerImage(user_id:String,dynamic_db:String) {
         self.bannerImageView?.startLoadingBannerImage()
         bannerImageService.callAPIBannerImage(
-          user_id: user_id, onSuccess: { (bannerimage) in
+            user_id: user_id,dynamic_db:dynamic_db,onSuccess: { (bannerimage) in
                 self.bannerImageView?.finishLoadingBannerImage()
                 if (bannerimage.count == 0){
                 } else {

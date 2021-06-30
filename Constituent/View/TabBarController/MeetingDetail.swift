@@ -25,7 +25,9 @@ class MeetingDetail: UIViewController {
         self.addCustomizedBackBtn(title:"  Details of Meeting")
         self.meetingTitle.text = meeting_Title.capitalized
         self.meetingDiscrption.text = meeting_Discrption.capitalized
-        self.meetingDate.text =  String(format: "%@ %@", "Date :",meeting_Date) 
+        self.meetingDate.text =  String(format: "%@ %@", "Date :",meeting_Date)
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
     }
     
 

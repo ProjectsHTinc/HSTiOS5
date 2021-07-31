@@ -294,18 +294,55 @@ class APIManager: NSObject {
         // Create dictionary
         print(responseObject)
           
-          guard let msg = responseObject["msg"].string, msg == "Banner image found" else{
+          guard let msg = responseObject["msg"].string, msg == "Banner and Videos" else{
               failureCallback?(responseObject["msg"].string!)
               return
         }
                         
-          if let responseDict = responseObject["banner_image"].arrayObject
+          if let responseDict = responseObject["banner_images"].arrayObject
           {
                 let bannerImageModel = responseDict as! [[String:AnyObject]]
                 // Create object
                 var data = [BannerImageModel]()
                 for item in bannerImageModel {
                     let single = BannerImageModel.build(item)
+                    data.append(single)
+                }
+                // Fire callback
+              successCallback?(data)
+           } else {
+                failureCallback?("An error has occured.")
+            }
+            
+        },
+        onFailure: {(errorMessage: String) -> Void in
+            failureCallback?(errorMessage)
+        }
+      )
+    }
+    
+    func callAPIBannerVideos(user_id:String,dynamic_db:String, onSuccess successCallback: ((_ bannerImage: [BannerVideosModel]) -> Void)?,onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        // Build URL
+        let url = MAIN_URL + Endpoint.bannerImageUrl.rawValue
+        // Set Parameters
+        let parameters: Parameters =  ["user_id": user_id,"dynamic_db":dynamic_db]
+        // call API
+        self.createRequest(url, method: .post, headers: nil, parameters: parameters as? [String : String], onSuccess: {(responseObject: JSON) -> Void in
+        // Create dictionary
+        print(responseObject)
+          
+          guard let msg = responseObject["msg"].string, msg == "Banner and Videos" else{
+              failureCallback?(responseObject["msg"].string!)
+              return
+        }
+                        
+          if let responseDict = responseObject["video_details"].arrayObject
+          {
+                let bannerImageModel = responseDict as! [[String:AnyObject]]
+                // Create object
+                var data = [BannerVideosModel]()
+                for item in bannerImageModel {
+                    let single = BannerVideosModel.build(item)
                     data.append(single)
                 }
                 // Fire callback

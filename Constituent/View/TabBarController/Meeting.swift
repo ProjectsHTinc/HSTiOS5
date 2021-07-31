@@ -18,6 +18,8 @@ class Meeting: UIViewController {
     var meeting_Date = String()
 
     @IBOutlet var tableView: UITableView!
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +29,6 @@ class Meeting: UIViewController {
             return
         }
         
-        self.view.isHidden = false
         self.addCustomizedBackBtn(title:"  Meeting")
         /*set delegates*/
         self.tableView?.delegate = self
@@ -35,8 +36,8 @@ class Meeting: UIViewController {
         self.tableView?.backgroundColor = .white
         /*Call API*/
         self.callAPI()
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.black
+//        let navigationBar = navigationController!.navigationBar
+//        navigationBar.tintColor = UIColor.black
     }
     
     func checkInterConnection () -> Bool
@@ -57,7 +58,6 @@ class Meeting: UIViewController {
         meetingPresener.getMeeting(user_id: GlobalVariables.shared.user_id,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -71,11 +71,8 @@ class Meeting: UIViewController {
             vc.meeting_Title = meeting_Title
             vc.meeting_Discrption = meeting_Discrption
             vc.meeting_Date = meeting_Date
-
         }
     }
-    
-
 }
 
 extension Meeting: UITableViewDelegate,UITableViewDataSource
@@ -123,7 +120,6 @@ extension Meeting: UITableViewDelegate,UITableViewDataSource
         self.meeting_Date = data.meeting_date
         self.performSegue(withIdentifier: "to_MeetingDetails", sender: self)
     }
-    
 }
 
 extension Meeting: MeetingView
@@ -148,5 +144,4 @@ extension Meeting: MeetingView
           })
          self.tableView.isHidden = true
     }
-    
 }

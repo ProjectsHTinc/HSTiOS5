@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - EMPageViewController (4.0.0)
+  - HMSegmentedControl (1.5.6)
   - IQKeyboardManagerSwift (6.5.5)
   - MBProgressHUD (1.2.0)
   - ObjectMapper (3.5.3)
@@ -11,38 +12,45 @@ PODS:
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
   - SwiftyJSON (4.3.0)
+  - YoutubePlayer-in-WKWebView (0.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.2)
   - AlamofireObjectMapper (~> 5.0)
   - EMPageViewController
+  - HMSegmentedControl
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.2.0)
   - ObjectMapper (~> 3.1)
   - SDWebImage (~> 5.0)
   - SwiftyJSON (~> 4.0)
+  - YoutubePlayer-in-WKWebView (~> 0.2.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireObjectMapper
     - EMPageViewController
+    - HMSegmentedControl
     - IQKeyboardManagerSwift
     - MBProgressHUD
     - ObjectMapper
     - SDWebImage
     - SwiftyJSON
+    - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   EMPageViewController: de8c8d6ea44c77bc2463f2cb9b4128390d2391f2
+  HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  YoutubePlayer-in-WKWebView: 4dad12b3ece938a6456fa4374df78942f88b485a
 
-PODFILE CHECKSUM: f377cd67fb974ff1a114a2dd3e84f89c0274f49d
+PODFILE CHECKSUM: a74c425d6eb336a29f2ac721f663c6d0cfdfaf0d
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

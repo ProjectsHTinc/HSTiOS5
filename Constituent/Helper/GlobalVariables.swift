@@ -18,4 +18,5 @@ class GlobalVariables: NSObject {
     var user_id = String()
     var user_name = String()
     var dynamic_Db = String()
+    var constituency_name = String()
 }

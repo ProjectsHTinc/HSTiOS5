@@ -27,7 +27,7 @@ class Login: UIViewController,UITextFieldDelegate, LoginView {
         self.hideKeyboardWhenTappedAround()
         /*Hide Activity View*/
         activityView.hidesWhenStopped = true
-        addCustomizedBackBtn(title: "Login")
+//        addCustomizedBackBtn(title: "Login")
         /*Set PlaceHolder textColor*/
 //        selectedConstituency.attributedPlaceholder =
 //        NSAttributedString(string: "Select Constituency", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])

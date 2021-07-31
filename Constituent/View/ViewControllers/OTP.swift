@@ -24,7 +24,6 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
     let presenterOtpService = OTPPresenter(oTPService: OTPService())
     var otpData = [OtpData]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,7 +42,13 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
         activityView.hidesWhenStopped = true
         /*Tap anywhere to hide keypad*/
         self.hideKeyboardWhenTappedAround()
-
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.view.isHidden = false
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     func setTextfieldDelegates ()
@@ -141,7 +146,6 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
         return true
     }
     
-    
     @IBAction func resendAction(_ sender: Any)
     {
         presenterLoginService.attachView(view: self)
@@ -231,8 +235,6 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
 
         }
     }
-    
-
 }
 
 extension OTP: OtpView
@@ -253,6 +255,5 @@ extension OTP: OtpView
         AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {
         })
     }
-    
 }
 

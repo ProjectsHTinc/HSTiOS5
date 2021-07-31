@@ -104,7 +104,6 @@ class WelcomeScreen: UIViewController, EMPageViewControllerDataSource, EMPageVie
         }
     }
     
-    
     // MARK: - EMPageViewController Delegate
 
     func em_pageViewController(_ pageViewController: EMPageViewController, willStartScrollingFrom startViewController: UIViewController, destinationViewController: UIViewController) {
@@ -154,7 +153,6 @@ class WelcomeScreen: UIViewController, EMPageViewControllerDataSource, EMPageVie
         print("Finished scrolling from \(startViewController != nil ? startViewController!.strTitle! : "nil") to \(destinationViewController.strTitle!). Transition successful? \(transitionSuccessful)")
     }
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -166,7 +164,6 @@ class WelcomeScreen: UIViewController, EMPageViewControllerDataSource, EMPageVie
             let _ = segue.destination as! Login
         }
     }
-    
 }
 
 

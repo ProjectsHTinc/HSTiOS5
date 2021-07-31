@@ -20,7 +20,6 @@ class GrievancesDetail: UIViewController {
     var _Status = String()
     var _grevType = String()
 
-
     @IBOutlet var constituencyName: UILabel!
     @IBOutlet var seekerType: UILabel!
     @IBOutlet var pettionNumber: UILabel!
@@ -32,14 +31,23 @@ class GrievancesDetail: UIViewController {
     @IBOutlet var titlePE: UILabel!
     @IBOutlet var dicriptionHeadingLabel: UILabel!
     @IBOutlet var pettionTitleLabel: UILabel!
+    @IBOutlet weak var createdOnlbl: UILabel!
+    @IBOutlet weak var updatedOnLbl: UILabel!
+    @IBOutlet weak var shadowView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.addCustomizedBackBtn(title:"  List of Grievance")
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.black
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.view.isHidden = false
+        UINavigationBar.appearance().shadowImage = UIImage()
+//        self.addCustomizedBackBtn(title:"  List of Grievance")
+//        let navigationBar = navigationController!.navigationBar
+//        navigationBar.tintColor = UIColor.black
         //self.titlePE.text = _titlePE
         let Type = _grevType
         if Type == "E"{
@@ -52,9 +60,8 @@ class GrievancesDetail: UIViewController {
             self.pettionTitleLabel.text = "Petition Number"
             self.dicriptionHeadingLabel.isHidden = false
             self.descripitionText.isHidden = false
-
         }
-        self.constituencyName.text = GlobalVariables.shared.selectedConstituencyName
+        self.constituencyName.text = GlobalVariables.shared.constituency_name
         self.seekerType.text = seeker_Type.capitalized
         self.pettionNumber.text = pettion_Number
         self.grievanceName.text = grievance_Name.capitalized
@@ -62,6 +69,11 @@ class GrievancesDetail: UIViewController {
         self.descripitionText.text = descripition_Text.capitalized
         self.refernce.text = _refernce
         self.status.text = _Status.capitalized
+        shadowView.layer.cornerRadius = 6
+        shadowView.layer.shadowColor = UIColor.darkGray.cgColor
+        shadowView.layer.shadowOpacity = 1.0
+        shadowView.layer.shadowOffset = CGSize.zero
+        shadowView.layer.shadowRadius = 3
         
         if self.status.text == "Processing"
         {
@@ -78,10 +90,7 @@ class GrievancesDetail: UIViewController {
 //            self.seekerType.textColor = UIColor(red: 242.0/255, green: 37.0/255, blue: 93.0/255, alpha: 1.0)
             self.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
         }
-
     }
-    
-
     /*
     // MARK: - Navigation
 

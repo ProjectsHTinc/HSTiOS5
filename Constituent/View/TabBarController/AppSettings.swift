@@ -12,7 +12,14 @@ class AppSettings: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.view.isHidden = false
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     @IBAction func logoutAction(_ sender: Any) {

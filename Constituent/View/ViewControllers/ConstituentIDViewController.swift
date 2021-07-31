@@ -6,6 +6,8 @@
 //  Copyright © 2021 HappySanzTech. All rights reserved.
 //
 
+//to_OTP
+
 import UIKit
 
 class ConstituentIDViewController: UIViewController,ConstiuentIdView {
@@ -17,7 +19,6 @@ class ConstituentIDViewController: UIViewController,ConstiuentIdView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

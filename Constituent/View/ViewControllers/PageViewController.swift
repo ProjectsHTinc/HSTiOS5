@@ -11,7 +11,6 @@ import Foundation
 
 class PageViewController:UIViewController
 {
-    
     var strTitle: String!
     var strDiscripition: String!
     var strImageName: String!
@@ -77,7 +76,6 @@ class PageViewController:UIViewController
         print("deinit: \(self.titleLabel!)")
     }
 
-    
     /*
     // MARK: - Navigation
 

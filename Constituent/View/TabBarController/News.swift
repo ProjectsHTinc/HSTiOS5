@@ -46,6 +46,15 @@ class News: UIViewController {
         self.tableView?.backgroundColor = UIColor.white
         self.bannerCollectionView.backgroundColor = UIColor.white
         self.bannerCollectionView?.isPagingEnabled = true
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.view.isHidden = false
+        UINavigationBar.appearance().shadowImage = UIImage()
+//        self.addShadowToBar()
 //        let tabBar = self.tabBarController!.tabBar
 //        tabBar.selectionIndicatorImage = UIImage().createSelectionIndicator(color: UIColor.blue, size: CGSize(width: tabBar.frame.width/CGFloat(tabBar.items!.count), height: tabBar.frame.height), lineWidth: 2.0)
     
@@ -190,7 +199,7 @@ extension News: UITableViewDataSource,UITableViewDelegate {
         cell.newsTitle.text = news_feed.title.capitalized
         cell.hours.attributedText = stringFromHtml(string: news_feed.details)
         cell.newFeedImage.sd_setImage(with: URL(string: news_feed.image_file_name), placeholderImage: UIImage(named: "placeholderNewsfeed.png"))
-        cell.dateLbl.text = news_feed.news_date
+        cell.dateLbl.text = convertDateFormat(inputDate: news_feed.news_date)
         return cell
     }
     
@@ -221,7 +230,7 @@ extension News: UICollectionViewDelegate,UICollectionViewDataSource,UICollection
    {
         let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsBannerImageCell
         let banner_image = bannerImage[indexPath.row]
-        cell.bannerImage.sd_setImage(with: URL(string: banner_image.gallery_image), placeholderImage: UIImage(named: "placeholder.png"))
+        cell.bannerImage.sd_setImage(with: URL(string: banner_image.banner_image), placeholderImage: UIImage(named: "placeholder.png"))
         return cell
    }
     
@@ -252,25 +261,28 @@ extension News: UICollectionViewDelegate,UICollectionViewDataSource,UICollection
        }
        return nil
    }
-}
+    
+    func convertDateFormat(inputDate: String) -> String {
 
-//extension UIImage {
-//    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
-//        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-//        color.setFill()
-//        UIRectFill(CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth))
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return image!
-//    }
-//}
-extension UIImage {
-    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        color.setFill()
-        UIRectFill(CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth))
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
+         let olDateFormatter = DateFormatter()
+         olDateFormatter.dateFormat = "dd-MM-yyyy"
+
+         let oldDate = olDateFormatter.date(from: inputDate)
+
+         let convertDateFormatter = DateFormatter()
+         convertDateFormatter.dateFormat = "dd MMM"
+
+         return convertDateFormatter.string(from: oldDate!)
     }
+    
+    func addShadowToBar() {
+        let shadowView = UIView(frame: self.navigationController!.navigationBar.frame)
+        shadowView.backgroundColor = UIColor.white
+        shadowView.layer.masksToBounds = false
+        shadowView.layer.shadowOpacity = 0.4 // your opacity
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2) // your offset
+        shadowView.layer.shadowRadius =  4 //your radius
+        self.view.addSubview(shadowView)
+    }
+
 }

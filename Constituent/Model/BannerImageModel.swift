@@ -11,7 +11,7 @@ import UIKit
 class BannerImageModel {
 
        var id: String?
-       var gallery_image: String?
+       var banner_image: String?
 
        // MARK: Instance Method
        func loadFromDictionary(_ dict: [String: AnyObject])
@@ -19,9 +19,8 @@ class BannerImageModel {
             if let data = dict["id"] as? String {
               self.id = data
             }
-        
-            if let data = dict["gallery_image"] as? String {
-              self.gallery_image = data
+            if let data = dict["banner_image"] as? String {
+              self.banner_image = data
             }
       }
       

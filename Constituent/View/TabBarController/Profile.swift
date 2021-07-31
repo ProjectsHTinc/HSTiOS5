@@ -20,6 +20,8 @@ class Profile: UIViewController {
     @IBOutlet var segmentControl: UISegmentedControl!
     @IBOutlet var containerViewOne: UIView!
     @IBOutlet var containerViewTwo: UIView!
+    @IBOutlet weak var outletView: UIView!
+    @IBOutlet weak var backView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +30,14 @@ class Profile: UIViewController {
             return
         }
         self.view.isHidden = false
-        self.navigationItem.title = "Profile"
+//        self.navigationItem.title = "Profile"
         profiledata = UserDefaults.standard.getProfileInfo(ProfileData.self, forKey: UserDefaultsKey.profileInfokey.rawValue)
-//        self.setAllValues()
+        self.setAllValues()
         self.setUpControl ()
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.black
+      
+        backView.addShadow(offset: CGSize.init(width: 0, height: 2), color: UIColor.gray, radius: 2.0, opacity: 0.35)
+ 
+//        backView.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     func checkInterConnection () -> Bool
@@ -51,17 +55,22 @@ class Profile: UIViewController {
     func setUpControl ()
     {
          segmentControl.selectedSegmentIndex = 0
-         segmentControl.backgroundColor = .white
-         segmentControl.tintColor = .white
+//         segmentControl.backgroundColor = .white
+//         segmentControl.tintColor = .white
          segmentControl.setTitleTextAttributes([
              NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
              NSAttributedString.Key.foregroundColor: UIColor.black
              ], for: .normal)
 
          segmentControl.setTitleTextAttributes([
-             NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
-             NSAttributedString.Key.foregroundColor: UIColor.white
+             NSAttributedString.Key.font : UIFont(name: "Roboto-Bold", size: 13) as Any,
+             NSAttributedString.Key.foregroundColor: UIColor.black
          ], for: .selected)
+        
+        segmentControl.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ], for: .normal)
     }
     
     func setAllValues ()
@@ -101,5 +110,3 @@ class Profile: UIViewController {
         }
     }
 }
-
- 

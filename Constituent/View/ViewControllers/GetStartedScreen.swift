@@ -26,7 +26,7 @@ class GetStartedScreen: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "Login"){
-            _ = segue.destination as! ConstituentIDViewController
+            _ = segue.destination as! UINavigationController
          }
     }
 }

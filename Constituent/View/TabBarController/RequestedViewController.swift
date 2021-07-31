@@ -15,17 +15,20 @@ class RequestedViewController: UIViewController,UITableViewDelegate,UITableViewD
        var meeting_Title = String()
        var meeting_Discrption = String()
        var meeting_Date = String()
+       var meetingCreate  = String()
        var meeting_status = [String]()
        var meeting_TitleArr = [String]()
        var meeting_DiscrptionArr = [String]()
        var meeting_DateArr = [String]()
        var meetingCreateArr = [String]()
+       var from = String()
 
        @IBOutlet var tableView: UITableView!
        
        override func viewDidLoad() {
            super.viewDidLoad()
 
+          from = "requested"
            guard checkInterConnection () else {
                return
            }
@@ -54,6 +57,7 @@ class RequestedViewController: UIViewController,UITableViewDelegate,UITableViewD
                let onDateArr = data.meeting_date
                let titleArr = data.meeting_title
                let meetCraetedDate = data.created_at
+               let meetingDescription = data.meeting_detail
                
                if statusArr.contains("REQUESTED") {
                    
@@ -61,7 +65,7 @@ class RequestedViewController: UIViewController,UITableViewDelegate,UITableViewD
                self.meeting_DateArr.append(onDateArr)
                self.meeting_TitleArr.append(titleArr)
                self.meetingCreateArr.append(meetCraetedDate)
-                   
+               self.meeting_DiscrptionArr.append(meetingDescription)
                }
              }
             self.tableView?.reloadData()
@@ -93,19 +97,20 @@ class RequestedViewController: UIViewController,UITableViewDelegate,UITableViewD
            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RequestedCell
 
            cell.meetingTitle.text = String(meeting_TitleArr[indexPath.row])
-           cell.meetingOnDate.text = String(meeting_DateArr[indexPath.row])
+//           cell.meetingOnDate.text = String(meeting_DateArr[indexPath.row])
            cell.cretaeDate.text = String(meetingCreateArr[indexPath.row])
-           
+           cell.selectionStyle = .none
            return cell
        }
-
-   //    @IBOutlet var meetingTitle: UILabel!
-   //    @IBOutlet var meetingdate: UILabel!
-   ////    @IBOutlet var meetingStatus: SideRoundedCornerLabel!
-   ////    @IBOutlet var titleImageGroup: UIImageView!
-   //    @IBOutlet var meetingOnDate: UILabel!
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         
+        self.meeting_Title = meeting_TitleArr[indexPath.row]
+        self.meeting_Discrption = meeting_DiscrptionArr[indexPath.row]
+        self.meeting_Date = meetingCreateArr[indexPath.row]
        
-       
+        self.performSegue(withIdentifier: "toMeetingDetail", sender: self)
+      }
    }
 
    extension RequestedViewController: MeetingView
@@ -119,12 +124,25 @@ class RequestedViewController: UIViewController,UITableViewDelegate,UITableViewD
            
            self.view.activityStopAnimating()
        }
-       
-     
-       
+    
        func setEmpty(errorMessage: String) {
              AlertController.shared.showAlert(targetVc: self, title: Globals.alertTitle, message: errorMessage, complition: {
              })
             self.tableView.isHidden = true
        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "toMeetingDetail")
+        {
+            let vc = segue.destination as! MeetingDetail
+            vc.meeting_Title = self.meeting_Title
+            vc.meeting_Discrption = self.meeting_Discrption
+            vc.meetingCreateDate = self.meeting_Date
+            vc.from = from
+//            vc.newsDetails = self.news_Details
+        }
+    }
    }

@@ -10,7 +10,7 @@ import UIKit
 
 struct BannerImagedata:Codable {
     //let user_count : Int
-    let gallery_image : String
+    let banner_image : String
 }
 
 protocol BannerImageView: NSObjectProtocol {
@@ -47,7 +47,7 @@ class BannerPresenter {
                 if (bannerimage.count == 0){
                 } else {
                   let mappedUsers = bannerimage.map {
-                    return BannerImagedata(gallery_image: "\($0.gallery_image ?? "")")
+                    return BannerImagedata(banner_image: "\($0.banner_image ?? "")")
                      }
                   self.bannerImageView?.setBannerImage(banner_image: mappedUsers)
                 }

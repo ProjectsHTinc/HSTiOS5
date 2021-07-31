@@ -9,6 +9,7 @@
 import UIKit
 
 class NewsBannerImageCell: UICollectionViewCell {
+    
     @IBOutlet var bannerImage: UIImageView!
     
 }

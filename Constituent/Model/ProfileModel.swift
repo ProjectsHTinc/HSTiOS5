@@ -30,7 +30,8 @@ class ProfileModel {
        var dob : String?
        var gender : String?
        var profile_picture : String?
-
+       var grievance_count : String?
+       var meeting_count : String?
 
 
        // MARK: Instance Method
@@ -111,12 +112,17 @@ class ProfileModel {
             if let data = dict["gender"] as? String {
                self.gender = data
             }
-        
             if let data = dict["profile_picture"] as? String {
                self.profile_picture = data
             }
+            if let data = dict["grievance_count"] as? String {
+               self.grievance_count = data
+            }
+            if let data = dict["meeting_count"] as? String {
+               self.meeting_count = data
+        }
       }
-      
+  
       // MARK: Class Method
       class func build(_ dict: [String: AnyObject]) -> ProfileModel {
             let profileModel = ProfileModel()

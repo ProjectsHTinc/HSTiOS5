@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import HMSegmentedControl
 
 class Grievances: UIViewController {
     
     let grievancePresener = GrievancesPresenter(grivencesService: GrivencesService())
     var grievanceData = [GrievanceData]()
-    
     var seeker_Type = String()
+    var titleArr = [String]()
     var pettion_Number = String()
     var grievance_Name = String()
     var subCat_Name = String()
@@ -21,10 +22,14 @@ class Grievances: UIViewController {
     var _refernce = String()
     var _Status = String()
     var _grevType = String()
-
-    @IBOutlet var segmentcontrol: UISegmentedControl!
+    var segmentedControl = HMSegmentedControl()
+    
+    
+//    @IBOutlet var segmentcontrol: UISegmentedControl!
     @IBOutlet var constitunecyName: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,14 +38,17 @@ class Grievances: UIViewController {
         guard checkInterConnection () else {
             return
         }
+        segmentView.addShadow(offset: CGSize.init(width: 0, height: 2), color: UIColor.gray, radius: 2.0, opacity: 0.35)
+        titleArr = ["PETITION","ENQUIRY"]
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.view.isHidden = false
-        self.addCustomizedBackBtn(title:"  Grievance")
-        self.constitunecyName.text = GlobalVariables.shared.selectedConstituencyName
+//        self.addCustomizedBackBtn(title:"  Grievance")
+        self.constitunecyName.text = GlobalVariables.shared.constituency_name
         /*set delegates*/
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         /*Setup SegmentControl*/
-        self.setUpSegmentControl ()
+        self.setUpSegementControl ()
         /*Call API*/
         self.callPettitionService (type:"P")
         let navigationBar = navigationController!.navigationBar
@@ -49,56 +57,77 @@ class Grievances: UIViewController {
         
     func checkInterConnection () -> Bool
     {
-        guard Reachability.isConnectedToNetwork() == true else{
+        guard Reachability.isConnectedToNetwork() == true else {
               self.view.isHidden = true
               AlertController.shared.offlineAlert(targetVc: self, complition: {
                 //Custom action code
              })
               return false
         }
-              return true
+        return true
     }
     
-    func setUpSegmentControl ()
+    
+    func setUpSegementControl ()
     {
-
-//        segmentcontrol.selectedSegmentIndex = 0
-//        segmentcontrol.backgroundColor = .white
-//        segmentcontrol.tintColor = .white
-//        segmentcontrol.setTitleTextAttributes([
-//            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
-//            NSAttributedString.Key.foregroundColor: UIColor.black
-//            ], for: .normal)
-        
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        let titleTextAttributes1 = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
-        segmentcontrol.setTitleTextAttributes(titleTextAttributes1, for: .normal)
-        segmentcontrol.setTitleTextAttributes(titleTextAttributes, for: .selected)
-
-//        segmentcontrol.setTitleTextAttributes([
-//            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
-////            NSAttributedString.Key.foregroundColor: UIColor.white
-//        ], for: .selected)
+        segmentedControl = HMSegmentedControl(sectionTitles: self.titleArr)
+        segmentedControl.autoresizingMask = [.flexibleRightMargin, .flexibleWidth]
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: self.segmentView.frame.width, height: 50)
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(segmentedControl:)), for: .valueChanged)
+        segmentView.addSubview(segmentedControl)
+        segmentedControl.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        segmentedControl.selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        segmentedControl.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
+        segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.bottom
+        segmentedControl.segmentWidthStyle = HMSegmentedControlSegmentWidthStyle.fixed
+        segmentedControl.selectionIndicatorHeight = 3.5
+        segmentedControl.selectionIndicatorColor = UIColor.black
+        segmentedControl.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 13.0)!]
     }
-
-    @IBAction func segmentaction(_ sender: Any)
-    {
-        if segmentcontrol.selectedSegmentIndex == 0
+    
+    @objc func segmentedControlChangedValue(segmentedControl: HMSegmentedControl) {
+        
+        if segmentedControl.selectedSegmentIndex == 0
         {
-            self.callPettitionService(type: "P")
+            self.callPettitionService(type: "p")
         }
         else
         {
             self.callPettitionService(type: "E")
         }
+        
     }
+//    func setUpSegmentControl ()
+//    {
+////        segmentcontrol.selectedSegmentIndex = 0
+////        segmentcontrol.backgroundColor = .white
+////        segmentcontrol.tintColor = .white
+////        segmentcontrol.setTitleTextAttributes([
+////            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
+////            NSAttributedString.Key.foregroundColor: UIColor.black
+////            ], for: .normal)
+//
+//        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        let titleTextAttributes1 = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+//        segmentcontrol.setTitleTextAttributes(titleTextAttributes1, for: .normal)
+//        segmentcontrol.setTitleTextAttributes(titleTextAttributes, for: .selected)
+//
+////        segmentcontrol.setTitleTextAttributes([
+////            NSAttributedString.Key.font : UIFont(name: "Roboto-Regular", size: 13) as Any,
+//////            NSAttributedString.Key.foregroundColor: UIColor.white
+////        ], for: .selected)
+//    }
+
+//    @IBAction func segmentaction(_ sender: Any)
+//    {
+//
+//    }
     
     func callPettitionService (type:String)
     {
         grievancePresener.attachView(view: self)
         grievancePresener.getGrievances(user_id: GlobalVariables.shared.user_id, type: type,dynamic_db:GlobalVariables.shared.dynamic_Db)
     }
-    
     
     // MARK: - Navigation
 
@@ -120,10 +149,8 @@ class Grievances: UIViewController {
                 vc._grevType = self._grevType
         }
     }
-    
-
-    
 }
+
 extension Grievances: UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,7 +160,7 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GrievancesCell
-        if segmentcontrol.selectedSegmentIndex == 0
+        if segmentedControl.selectedSegmentIndex == 0
         {
             let data = grievanceData[indexPath.row]
             //let grievance_type = data.grievance_type
@@ -142,9 +169,13 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
             cell.subCategoery.text = data.sub_category_name.capitalized
             cell.status.text = data.status.capitalized
             cell.date.text = data.grievance_date
+            cell.petionImage.image = UIImage(named:"petition")
             if cell.status.text == "Processing" || cell.status.text == "Requested"
             {
                 cell.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            }
+            else if data.status == "PENDING" {
+                cell.status.backgroundColor =  UIColor(red: 255.0/255, green: 166.0/255, blue: 0.0/255, alpha: 1.0)
             }
             else
             {
@@ -160,16 +191,19 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
             cell.subCategoery.text = data.sub_category_name.capitalized
             cell.status.text = data.status.capitalized
             cell.date.text = data.grievance_date
+            cell.petionImage.image = UIImage(named:"enquiry")
             if cell.status.text == "Processing" || cell.status.text == "Requested"
             {
                 cell.status.backgroundColor =  UIColor(red: 253.0/255, green: 166.0/255, blue: 68.0/255, alpha: 1.0)
+            }
+            else if data.status == "PENDING" {
+                cell.status.backgroundColor =  UIColor(red: 255.0/255, green: 166.0/255, blue: 0.0/255, alpha: 1.0)
             }
             else
             {
                   cell.status.backgroundColor =  UIColor(red: 54.0/255, green: 214.0/255, blue: 107.0/255, alpha: 1.0)
             }
         }
-        
              return cell
     }
     
@@ -189,7 +223,6 @@ extension Grievances: UITableViewDelegate,UITableViewDataSource
         self._grevType = data.grievance_type
         self.performSegue(withIdentifier: "to_GrievanceDetail", sender: self)
     }
-    
 }
 
 extension Grievances: GrievanceView
@@ -211,6 +244,4 @@ extension Grievances: GrievanceView
           })
          self.tableView.isHidden = true
     }
-    
-    
 }

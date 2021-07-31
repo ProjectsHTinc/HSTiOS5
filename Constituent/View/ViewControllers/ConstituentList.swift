@@ -21,17 +21,25 @@ class ConstituentList: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.view.isHidden = false
+        UINavigationBar.appearance().shadowImage = UIImage()
          if from == "Otp"
          {
             self.title = "Select Constituent"
             /*Set navigation back button hidden*/
-            self.navigationItem.setHidesBackButton(true, animated: true);
+//            self.navigationItem.setHidesBackButton(true, animated: true);
          }
          else
          {
-            self.addCustomizedBackBtn(title:"  Select Constituent")
+            self.title = "Select Constituent"
+//            self.addCustomizedBackBtn(title:"  Select Constituent")
             /*Show navigation back button hidden*/
-            self.navigationItem.setHidesBackButton(false, animated: true);
+//            self.navigationItem.setHidesBackButton(false, animated: true);
 
          }
          otpData = UserDefaults.standard.getsOtpArrayData(OtpData.self, forKey: UserDefaultsKey.userOtpListSessionkey.rawValue)

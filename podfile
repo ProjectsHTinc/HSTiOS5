@@ -10,4 +10,6 @@
    pod 'EMPageViewController'
    pod 'AlamofireObjectMapper', '~> 5.0'
    pod 'ObjectMapper', '~> 3.1'
+   pod 'HMSegmentedControl'
+   pod "YoutubePlayer-in-WKWebView", "~> 0.2.0"
    end

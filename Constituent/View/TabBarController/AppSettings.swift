@@ -55,12 +55,11 @@ class AppSettings: UIViewController {
     }
     
     @IBAction func changeUser(_ sender: Any) {
-        
+         
         self.performSegue(withIdentifier: "to_ConstituencyList", sender: self)
     }
     
-    
-    func reNew(){
+    func reNew() {
             //reload application data (renew root view )
         UIApplication.shared.keyWindow?.rootViewController = storyboard!.instantiateViewController(withIdentifier: "getStart")
         }

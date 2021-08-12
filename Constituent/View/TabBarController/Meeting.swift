@@ -18,7 +18,6 @@ class Meeting: UIViewController {
     var meeting_Date = String()
 
     @IBOutlet var tableView: UITableView!
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()

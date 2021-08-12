@@ -24,6 +24,7 @@ class ProfileDetails: UITableViewController {
     @IBOutlet var pincode: UITextField!
     @IBOutlet var voterId: UITextField!
     @IBOutlet var adharNumber: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +52,6 @@ class ProfileDetails: UITableViewController {
         self.pincode.text = profiledata[0].pin_code
         self.voterId.text = profiledata[0].voter_id_no
         self.adharNumber.text = profiledata[0].aadhaar_no
-        
     }
 
     // MARK: - Table view data source
@@ -65,9 +65,6 @@ class ProfileDetails: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
-   
-    
     
     /*
     // Override to support conditional editing of the table view.

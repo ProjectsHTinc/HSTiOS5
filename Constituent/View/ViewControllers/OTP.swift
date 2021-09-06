@@ -29,7 +29,7 @@ class OTP: UIViewController, UITextFieldDelegate, LoginView {
 
         // Do any additional setup after loading the view.
         /*Set Navigation Back Button*/
-        self.addCustomizedBackBtn(title:"  Verification Code")
+//        self.addCustomizedBackBtn(title:"  Verification Code")
         /*Set Delegates*/
         self.setTextfieldDelegates()
         self.textfiledOne.delegate = self

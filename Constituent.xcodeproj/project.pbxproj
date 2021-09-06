@@ -128,7 +128,7 @@
 		79F5E02326676414007BDDC7 /* CheckConstituentIDPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5E02226676414007BDDC7 /* CheckConstituentIDPresenter.swift */; };
 		79F5E02826676429007BDDC7 /* CheckConstituentIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5E02726676429007BDDC7 /* CheckConstituentIDModel.swift */; };
 		79F5E02D266764B4007BDDC7 /* ConstituentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5E02C266764B4007BDDC7 /* ConstituentIDViewController.swift */; };
-		C92BF628A741F65F9D66E6A0 /* Pods_Constituent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84799ACA1292DC62C12FC2A2 /* Pods_Constituent.framework */; };
+		8F0E3EA70D87B13478189CDA /* Pods_Constituent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5E529C3AA596C55230CABA /* Pods_Constituent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +149,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0CD5B13062BF189D705AED7F /* Pods-Constituent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Constituent.release.xcconfig"; path = "Target Support Files/Pods-Constituent/Pods-Constituent.release.xcconfig"; sourceTree = "<group>"; };
+		1E393B6FD87D4FB48ADB788A /* Pods-Constituent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Constituent.debug.xcconfig"; path = "Target Support Files/Pods-Constituent/Pods-Constituent.debug.xcconfig"; sourceTree = "<group>"; };
 		6B3DFA2F24A233E100D9BC31 /* ConstituencyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituencyInfo.swift; sourceTree = "<group>"; };
 		6B4CD352249232CD00255E55 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		6B60E1B3249CF277007B63D0 /* NewsBannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBannerImageCell.swift; sourceTree = "<group>"; };
@@ -279,8 +279,8 @@
 		79F5E02226676414007BDDC7 /* CheckConstituentIDPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckConstituentIDPresenter.swift; sourceTree = "<group>"; };
 		79F5E02726676429007BDDC7 /* CheckConstituentIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckConstituentIDModel.swift; sourceTree = "<group>"; };
 		79F5E02C266764B4007BDDC7 /* ConstituentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituentIDViewController.swift; sourceTree = "<group>"; };
-		82908EB44A9E0E8CA9B33241 /* Pods-Constituent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Constituent.debug.xcconfig"; path = "Target Support Files/Pods-Constituent/Pods-Constituent.debug.xcconfig"; sourceTree = "<group>"; };
-		84799ACA1292DC62C12FC2A2 /* Pods_Constituent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Constituent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD5E529C3AA596C55230CABA /* Pods_Constituent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Constituent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3827D8B3128CA7A8C1F10A9 /* Pods-Constituent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Constituent.release.xcconfig"; path = "Target Support Files/Pods-Constituent/Pods-Constituent.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,7 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92BF628A741F65F9D66E6A0 /* Pods_Constituent.framework in Frameworks */,
+				8F0E3EA70D87B13478189CDA /* Pods_Constituent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD79DA324A9E44A00EB32B8 /* CoreNFC.framework */,
-				84799ACA1292DC62C12FC2A2 /* Pods_Constituent.framework */,
+				BD5E529C3AA596C55230CABA /* Pods_Constituent.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -593,8 +593,8 @@
 		FC1D2F1F269E9B187C401922 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				82908EB44A9E0E8CA9B33241 /* Pods-Constituent.debug.xcconfig */,
-				0CD5B13062BF189D705AED7F /* Pods-Constituent.release.xcconfig */,
+				1E393B6FD87D4FB48ADB788A /* Pods-Constituent.debug.xcconfig */,
+				D3827D8B3128CA7A8C1F10A9 /* Pods-Constituent.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -606,11 +606,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BA5634824920138007BF788 /* Build configuration list for PBXNativeTarget "Constituent" */;
 			buildPhases = (
-				02D6AD8F01372AD1F35AB7CD /* [CP] Check Pods Manifest.lock */,
+				2B8C4B5F8B50F56781F17472 /* [CP] Check Pods Manifest.lock */,
 				6BA5631A24920121007BF788 /* Sources */,
 				6BA5631B24920121007BF788 /* Frameworks */,
 				6BA5631C24920121007BF788 /* Resources */,
-				EDB9B0C877C9970EA4DCBA13 /* [CP] Embed Pods Frameworks */,
+				E8EC92692C6115FA4378E62C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -746,7 +746,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02D6AD8F01372AD1F35AB7CD /* [CP] Check Pods Manifest.lock */ = {
+		2B8C4B5F8B50F56781F17472 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -768,7 +768,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDB9B0C877C9970EA4DCBA13 /* [CP] Embed Pods Frameworks */ = {
+		E8EC92692C6115FA4378E62C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1060,7 +1060,7 @@
 		};
 		6BA5634924920138007BF788 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82908EB44A9E0E8CA9B33241 /* Pods-Constituent.debug.xcconfig */;
+			baseConfigurationReference = 1E393B6FD87D4FB48ADB788A /* Pods-Constituent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Constituent/Constituent.entitlements;
@@ -1083,7 +1083,7 @@
 		};
 		6BA5634A24920138007BF788 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CD5B13062BF189D705AED7F /* Pods-Constituent.release.xcconfig */;
+			baseConfigurationReference = D3827D8B3128CA7A8C1F10A9 /* Pods-Constituent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Constituent/Constituent.entitlements;

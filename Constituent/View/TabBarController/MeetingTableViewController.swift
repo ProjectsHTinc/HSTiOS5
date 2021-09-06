@@ -27,8 +27,8 @@ class MeetingTableViewController: UIViewController {
     
     func setUpSegmentControl() {
         segmentedControl.setTitle("Requested", forSegmentAt: 0)
-        segmentedControl.setTitle("Scheduled", forSegmentAt: 0)
-        segmentedControl.setTitle("Completed", forSegmentAt: 0)
+        segmentedControl.setTitle("Scheduled", forSegmentAt: 1)
+        segmentedControl.setTitle("Completed", forSegmentAt: 2)
     }
     
     @IBAction func segmentedControlAction(_ sender: Any) {

@@ -47,7 +47,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="segmentControllAction:" destination="EQh-Wu-gNx" eventType="valueChanged" id="3yi-X1-Np2"/>
                                     <action selector="segmentedControlAction:" destination="EQh-Wu-gNx" eventType="valueChanged" id="igN-9T-0oI"/>
                                 </connections>
                             </segmentedControl>
@@ -108,9 +107,7 @@
                         <outlet property="completed" destination="EW1-ZE-uio" id="8ME-vf-IlB"/>
                         <outlet property="requested" destination="N5A-1A-5UP" id="bk1-Wn-IgC"/>
                         <outlet property="schedule" destination="zLp-e4-D1p" id="UkI-WF-16G"/>
-                        <outlet property="secheduled" destination="zLp-e4-D1p" id="dQW-ko-L1H"/>
                         <outlet property="segmentedControl" destination="xR3-Zm-Qfg" id="Zfw-MU-mXt"/>
-                        <outlet property="shadowNavView" destination="0xB-Uu-CHp" id="vFK-hI-ddD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNU-ra-eU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="101" y="2606"/>
         </scene>
-        <!--Schedule View Controller-->
+        <!--Scheduled View Controller-->
         <scene sceneID="TiA-0c-H4s">
             <objects>
-                <viewController id="SYD-uN-LPa" customClass="ScheduleViewController" customModule="Constituent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SYD-uN-LPa" customClass="ScheduledViewController" customModule="Constituent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QZF-We-4Nt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,7 +412,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="gQI-W3-CoJ" id="dsV-5M-84W"/>
+                        <outlet property="tableView" destination="gQI-W3-CoJ" id="vji-ae-LLm"/>
                         <segue destination="TkQ-Db-D6g" kind="show" identifier="toMeetingDetail1" id="knW-0Q-256"/>
                     </connections>
                 </viewController>
@@ -581,7 +578,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="bIh-P5-6My" id="NAQ-SM-FMx"/>
+                        <outlet property="tableView" destination="bIh-P5-6My" id="rpd-61-SqQ"/>
                         <segue destination="TkQ-Db-D6g" kind="show" identifier="toMeetingDetail2" id="3lf-Hi-sPY"/>
                     </connections>
                 </viewController>
